@@ -1,0 +1,8 @@
+{{#each categories}}
+    <li class="category active"><a class="category-nav" href="/category/{{CategoryCode}}">{{CategoryCodeDesc}}</a>
+    {{#compare Parent "==" ../CategoryCode}}
+        {{> sub}}
+    {{/compare}}
+    </li>
+{{/each}}
+

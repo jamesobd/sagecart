@@ -1,0 +1,59 @@
+<div class="row">
+    {{#if ImageFile }}
+        <div class="image col-sm-2">
+            <img src="http://images.gulfpackaging.com/img/TST/{{ImageFile}}"
+                 class="img-responsive img-thumbnail"/>
+        </div>
+
+        <div class="details col-sm-7">
+            <h4>{{#if ItemName}}{{ItemName}}{{else}}{{ItemCodeDesc}}{{/if}}</h4>
+
+            <p>{{ItemLongDesc}}</p>
+            {{#if OrderIncrement}}
+                <p>Item must be ordered in multiples of {{OrderIncrement}}</p>
+            {{/if}}
+            <p>Item #: {{ItemCode}}</p>
+        </div>
+    {{else}}
+        <div class="details col-sm-9">
+            <h4>{{#if ItemName}}{{ItemName}}{{else}}{{ItemCodeDesc}}{{/if}}</h4>
+
+            <p>{{ItemLongDesc}}</p>
+            {{#if OrderIncrement}}
+                <p>Item must be ordered in multiples of {{OrderIncrement}}</p>
+            {{/if}}
+            <p>Item #: {{ItemCode}}</p>
+        </div>
+    {{/if}}
+
+    <div class="item-pricing col-sm-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <p class="col-sm-12 form-control-static text-right">${{numberToFixed CustomerPrice 2}}
+                    / {{SalesUnitOfMeasure}}</p>
+            </div>
+
+            <div class="form-group form-group-sm">
+                <label class="col-sm-8 control-label">Qty:</label>
+
+                <div class="col-sm-4">
+                    <input type="text" class="quantity form-control input-sm">
+                </div>
+            </div>
+
+            {{#compare UDF_IT_PER_PALLET '>' 0}}
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-8 control-label">Pallets:</label>
+
+                    <div class="pallets col-sm-4 form-control-static" style="text-align: left">0.00</div>
+                </div>
+            {{/compare}}
+
+            <div class="form-group form-group-sm">
+                <div class="col-sm-12 control-label text-right">
+                    <button class="add-to-cart btn btn-default btn-xs">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

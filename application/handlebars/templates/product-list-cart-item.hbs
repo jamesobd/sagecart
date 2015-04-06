@@ -1,0 +1,69 @@
+<div class="row">
+    {{#if ImageFile }}
+        <div class="image col-sm-2">
+            <img src="http://images.gulfpackaging.com/img/TST/{{ImageFile}}"
+                 class="img-responsive img-thumbnail"/>
+        </div>
+
+        <div class="details col-sm-7">
+            <h4>{{#if ItemName}}{{ItemName}}{{else}}{{ItemCodeDesc}}{{/if}}</h4>
+
+            <p>{{ItemLongDesc}}</p>
+            {{#if OrderIncrement}}
+                <p>Item must be ordered in multiples of {{OrderIncrement}}</p>
+            {{/if}}
+            <p>Item #: {{ItemCode}}</p>
+        </div>
+    {{else}}
+        <div class="details col-sm-9">
+            <h4>{{#if ItemName}}{{ItemName}}{{else}}{{ItemCodeDesc}}{{/if}}</h4>
+
+            <p>{{ItemLongDesc}}</p>
+            {{#if OrderIncrement}}
+                <p>Item must be ordered in multiples of {{OrderIncrement}}</p>
+            {{/if}}
+            <p>Item #: {{ItemCode}}</p>
+        </div>
+    {{/if}}
+
+    <div class="item-pricing col-sm-3">
+        <div class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-6 control-label">Price:</label>
+
+                <p class="price col-sm-6 form-control-static">${{numberToFixed CustomerPrice 2}}
+                    / {{SalesUnitOfMeasure}}</p>
+            </div>
+
+            <div class="form-group form-group-sm">
+                <label for="Quantity" class="col-sm-6 control-label">Qty:</label>
+
+                <p class="quantity col-sm-6 form-control-static"
+                   style="text-align: left; display: none;">{{_Quantity}}</p>
+
+                <div class="col-sm-6">
+                    <input type="text" class="quantity form-control input-sm" name="quantity" value="{{_Quantity}}">
+                </div>
+            </div>
+
+            {{#compare UDF_IT_PER_PALLET '>' 0}}
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-6 control-label">Pallets:</label>
+
+                    <p class="pallets col-sm-6 form-control-static" style="text-align: left">{{_Pallets}}</p>
+                </div>
+            {{/compare}}
+
+            <div class="form-group form-group-sm">
+                <label class="col-sm-6 control-label">Item Total:</label>
+
+                <p class="total col-sm-6 form-control-static" style="text-align: left">${{numberToFixed _Total 2}}</p>
+            </div>
+
+            <div class="col-sm-12 control-label text-right">
+                <a href="javascript:" class="update form-control-static" style="display: none;">Update</a>
+                <a href="javascript:" class="remove form-control-static">Remove</a>
+            </div>
+        </div>
+    </div>
+</div>

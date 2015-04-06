@@ -1,0 +1,13 @@
+/*******************************************************************************
+ * 	Layout styles
+ ******************************************************************************/
+body {
+    background-color: #363636;
+}
+
+body > section {
+    background-color: #ffffff;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}

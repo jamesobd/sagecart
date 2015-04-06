@@ -1,0 +1,79 @@
+<div class="row spacing-p">
+    <div id="freight-info-desc" class="col-sm-8">
+        <strong>{{UDF_FREIGHT_INFO}}</strong>
+    </div>
+    <div class="col-sm-4">
+        <div class="pallet-totals form-horizontal">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-6 control-label">Total Pallets:</label>
+
+                <p class="col-sm-6 form-control-static">
+                    <strong id="cart-total">{{numberToFixed totalPallets 2}}</strong>
+                </p>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-6 control-label">Subtotal:</label>
+
+                <p class="col-sm-6 form-control-static">
+                    <strong id="cart-total">${{numberToFixed subtotal 2}}</strong>
+                </p>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-6 control-label">Freight:</label>
+
+                <p class="col-sm-6 form-control-static">
+                    <strong id="cart-total">{{#if ShipToAddress}}${{numberToFixed FreightAmt 2}}{{else}}<span>See freight info</span>{{/if}}
+                    </strong>
+                </p>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-6 control-label">Tax:</label>
+
+                <p class="col-sm-6 form-control-static">
+                    <strong id="cart-total">${{numberToFixed SalesTaxAmt 2}}</strong>
+                </p>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-6 control-label">Total:</label>
+
+                <p class="col-sm-6 form-control-static">
+                    <strong id="cart-total">${{numberToFixed total 2}}</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row spacing-p">
+    <div class="col-sm-7"></div>
+    <div class="col-sm-5">
+        <textarea id="shipping-comments" name="ShippingComments" class="form-control" rows="3"
+                  placeholder="Order Comments">{{Comment}}</textarea>
+
+        <div id="comments-chars" class="text-right">0 of 2048</div>
+    </div>
+</div>
+
+<div class="row spacing-p">
+    <div class="col-sm-12">
+        <div id="cart-footer-checkout" class="clearfix">
+            <div class="form-inline pull-right">
+                <button id="cart-checkout" class="btn btn-primary btn-lg" data-loading-text="Loading...">Review Order<span
+                        class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+            </div>
+        </div>
+        <div id="cart-footer-submit" class="clearfix" style="display: none">
+            <div class="form-inline pull-right">
+                <h3 class="text-right text-danger">Please confirm your order.</h3>
+
+                <div class="form-group text-right">
+                    <div><strong>For questions or contact inquiries</strong></div>
+                    <div>call 1-877-505-8909</div>
+                    <div>or send us <a href="/contactus">an email.</a></div>
+                </div>
+                <button id="cart-cancel-submit" class="btn btn-default btn-lg">Cancel</button>
+                <button id="cart-submit" class="btn btn-primary btn-lg">Submit Order</button>
+            </div>
+        </div>
+    </div>
+</div>
