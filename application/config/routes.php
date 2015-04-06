@@ -66,13 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
 // Pages
-//$route['contactus'] = "index/contactus";
-//$route['confirm'] = "index/confirm";
-$route['logs/(:any)'] = "index/logs/$1";
-$route['logs'] = "index/logs";
-
-$route['login'] = "index/login"; // Login
-$route['(:any)'] = 'index'; // Home
+$route['shop'] = 'index/shop'; // Home
 
 
 
