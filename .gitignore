@@ -1,0 +1,10 @@
+.project
+.settings
+application/config/config.php
+application/config/database.php
+logs/
+nbproject/
+.idea/
+
+application/controllers/cron/monitoring_status.json
+docs
