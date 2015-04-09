@@ -1,6 +1,6 @@
 /*
- *Limo HTML5 E-Commerce Template v1.0
- *Copyright 2014 8Guild.com
+ *Limo HTML5 E-Commerce Template v1.2
+ *Copyright 2015 8Guild.com
  *All scripts for Limo HTML5 E-Commerce Template
  */
 

@@ -125,15 +125,15 @@
 <script src="/js/views/nav-view.js"></script>
 <script src="/js/views/content-view.js"></script>
 <script src="/js/views/basic-view.js"></script>
-<script src="/js/views/body-view.js"></script>
-<script src="/js/views/product-list-page.js"></script>
-<script src="/js/views/cart-page.js"></script>
+<script src="/js/views/layouts/example-layout.js"></script>
+<script src="/js/views/pages/product-list-page.js"></script>
+<script src="/js/views/pages/cart-page.js"></script>
 <script src="/js/views/partials/product-list-item-view.js"></script>
 <script src="/js/views/partials/product-list-cart-item-view.js"></script>
 <script src="/js/views/partials/product-list-view.js"></script>
 <script src="/js/views/partials/pallet-info-view.js"></script>
 <script src="/js/views/partials/product-limit-view.js"></script>
-<script src="/js/routes/app-home.js"></script>
+<script src="/js/routes/main-route.js"></script>
 
 <div class="modal-backdrop in"></div>
 </body>

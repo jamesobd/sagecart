@@ -3,8 +3,12 @@ App.Views.BasicView = Backbone.View.extend({
         this.template = params.template;
     },
 
-    render: function () {
-        this.$el.html(this.template());
+    events: {
+        'remove': 'remove'
+    },
+
+    render: function (data) {
+        this.$el.html(this.template(data));
         return this;
     }
 });

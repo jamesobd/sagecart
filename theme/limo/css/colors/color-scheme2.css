@@ -652,17 +652,3 @@ footer.footer a:hover {
 .feature-tabs .tab.active i {
   color: #ee3900;
 }
-.cart-message {
-  background-color: #ff5722;
-}
-.cart-message .btn-black {
-  background-color: #000;
-  color: #fff;
-}
-.cart-message .btn-black:hover {
-  color: #ff5722;
-  background-color: #fff;
-}
-.about .hero-static .content .inner h1 span {
-  color: #ff5722;
-}
