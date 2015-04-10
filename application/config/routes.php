@@ -65,9 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 
 
-// Pages
-$route['shop'] = 'index/shop'; // Home
-
+// Catch-all
+$route['(:any)'] = ''; // Home
 
 
 /* End of file routes.php */

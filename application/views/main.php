@@ -52,7 +52,7 @@
     <div class="menu-toggle"><i class="fa fa-list"></i></div>
 
     <div class="container">
-        <a class="logo" href="/index.html"><img src="/img/logo-default.png" alt="Limo"/></a>
+        <a class="logo" href="/"><img src="/img/logo-default.png" alt="Limo"/></a>
     </div>
 
     <!--Main Menu-->
@@ -60,54 +60,54 @@
         <div class="container">
 
             <ul class="main">
-                <li class="has-submenu"><a href="/index.html"><span>H</span>ome<i class="fa fa-chevron-down"></i></a><!--Class "has-submenu" for proper highlighting and dropdown-->
+                <li class="has-submenu"><a href="/"><span>H</span>ome<i class="fa fa-chevron-down"></i></a><!--Class "has-submenu" for proper highlighting and dropdown-->
                     <ul class="submenu">
-                        <li><a href="/index.html">Home - Slideshow</a></li>
-                        <li><a href="/home-fullscreen.html">Home - Fullscreen Slider</a></li>
-                        <li><a href="/home-showcase.html">Home - Product Showcase</a></li>
-                        <li><a href="/home-categories.html">Home - Categories Slider</a></li>
-                        <li><a href="/home-offers.html">Home - Special Offers</a></li>
+                        <li><a href="/home-slideshow">Home - Slideshow</a></li>
+                        <li><a href="/home-fullscreen">Home - Fullscreen Slider</a></li>
+                        <li><a href="/home-showcase">Home - Product Showcase</a></li>
+                        <li><a href="/home-categories">Home - Categories Slider</a></li>
+                        <li><a href="/home-offers">Home - Special Offers</a></li>
                     </ul>
                 </li>
-                <li class="has-submenu"><a href="/shop-filters-left-3cols.html"><span>S</span>hop<i
+                <li class="has-submenu"><a href="/shop-filters-left-3cols"><span>S</span>hop<i
                             class="fa fa-chevron-down"></i></a>
                     <ul class="submenu">
-                        <li><a href="/shop-filters-left-3cols.html">Shop - Filters Left 3 Cols</a></li>
-                        <li><a href="/shop-filters-left-2cols.html">Shop - Filters Left 2 Cols</a></li>
-                        <li><a href="/shop-filters-right-3cols.html">Shop - Filters Right 3 Cols</a></li>
-                        <li><a href="/shop-filters-right-2cols.html">Shop - Filters Right 2 Cols</a></li>
-                        <li><a href="/shop-no-filters-4cols.html">Shop - No Filters 4 Cols</a></li>
-                        <li><a href="/shop-no-filters-3cols.html">Shop - No Filters 3 Cols</a></li>
-                        <li><a href="/shop-single-item-v1.html">Shop - Single Item Vers 1</a></li>
-                        <li><a href="/shop-single-item-v2.html">Shop - Single Item Vers 2</a></li>
-                        <li><a href="/shopping-cart.html">Shopping Cart</a></li>
-                        <li><a href="/checkout.html">Checkout Page</a></li>
-                        <li><a href="/wishlist.html">Wishlist</a></li>
+                        <li><a href="/shop-filters-left-3cols">Shop - Filters Left 3 Cols</a></li>
+                        <li><a href="/shop-filters-left-2cols">Shop - Filters Left 2 Cols</a></li>
+                        <li><a href="/shop-filters-right-3cols">Shop - Filters Right 3 Cols</a></li>
+                        <li><a href="/shop-filters-right-2cols">Shop - Filters Right 2 Cols</a></li>
+                        <li><a href="/shop-no-filters-4cols">Shop - No Filters 4 Cols</a></li>
+                        <li><a href="/shop-no-filters-3cols">Shop - No Filters 3 Cols</a></li>
+                        <li><a href="/shop-single-item-v1">Shop - Single Item Vers 1</a></li>
+                        <li><a href="/shop-single-item-v2">Shop - Single Item Vers 2</a></li>
+                        <li><a href="/shopping-cart">Shopping Cart</a></li>
+                        <li><a href="/checkout">Checkout Page</a></li>
+                        <li><a href="/wishlist">Wishlist</a></li>
                     </ul>
                 </li>
-                <li class="has-submenu"><a href="/blog-sidebar-right.html"><span>B</span>log<i
+                <li class="has-submenu"><a href="/blog-sidebar-right"><span>B</span>log<i
                             class="fa fa-chevron-down"></i></a>
                     <ul class="submenu">
-                        <li><a href="/blog-sidebar-left.html">Blog - Sidebar Left</a></li>
-                        <li><a href="/blog-sidebar-right.html">Blog - Sidebar Right</a></li>
-                        <li><a href="/blog-single.html">Blog - Single Post</a></li>
+                        <li><a href="/blog-sidebar-left">Blog - Sidebar Left</a></li>
+                        <li><a href="/blog-sidebar-right">Blog - Sidebar Right</a></li>
+                        <li><a href="/blog-single">Blog - Single Post</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu"><a href="#"><span>P</span>ages<i class="fa fa-chevron-down"></i></a>
                     <ul class="submenu">
-                        <li><a href="/register.html">Login / Registration</a></li>
-                        <li><a href="/about.html">About Us</a></li>
-                        <li><a href="/contacts.html">Contacts</a></li>
-                        <li><a href="/coming-soon.html">Coming Soon</a></li>
-                        <li><a href="/404.html">404 Page</a></li>
-                        <li><a href="/support.html">Support Page</a></li>
-                        <li><a href="/delivery.html">Delivery</a></li>
-                        <li><a href="/history.html">History Page</a></li>
-                        <li><a href="/tracking.html">Tracking Page</a></li>
-                        <li><a href="/cs-page.html">Components &amp; Styles</a></li>
+                        <li><a href="/register">Login / Registration</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contacts">Contacts</a></li>
+                        <li><a href="/coming-soon">Coming Soon</a></li>
+                        <li><a href="/404">404 Page</a></li>
+                        <li><a href="/support">Support Page</a></li>
+                        <li><a href="/delivery">Delivery</a></li>
+                        <li><a href="/history">History Page</a></li>
+                        <li><a href="/tracking">Tracking Page</a></li>
+                        <li><a href="/cs-page">Components &amp; Styles</a></li>
                     </ul>
                 </li>
-                <li class="hide-sm"><a href="/support.html"><span>S</span>upport</a></li>
+                <li class="hide-sm"><a href="/support"><span>S</span>upport</a></li>
             </ul>
 
         </div>
@@ -228,37 +228,7 @@
 <!--Header Close-->
 
 <!--Page Content-->
-<div class="page-content">
-
-    <!--Breadcrumbs-->
-    <ol class="breadcrumb">
-        <li><a href="/index.html">Home</a></li>
-        <li>Login/ register</li>
-    </ol>
-    <!--Breadcrumbs Close-->
-
-    <!--Login / Register-->
-    <section id="content" class="container">
-    </section>
-    <!--Login / Register Close-->
-
-    <!--Brands Carousel Widget-->
-    <section class="brand-carousel">
-        <div class="container">
-            <h2>Brands in our shop</h2>
-
-            <div class="inner">
-                <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
-                <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
-                <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
-                <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
-                <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
-                <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
-                <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
-            </div>
-        </div>
-    </section>
-    <!--Brands Carousel Close-->
+<div id="content" class="page-content">
 
 </div>
 <!--Page Content Close-->
@@ -433,7 +403,7 @@
 <script src="/js/collections/categories.js"></script>
 <script src="/js/collections/products.js"></script>
 <script src="/js/views/layouts/main-layout.js"></script>
-<script src="/js/views/basic-view.js"></script>
+<script src="/js/views/pages/default-page-view.js"></script>
 <script src="/js/routes/main-route.js"></script>
 
 <div class="modal-backdrop fade in" style="display: none"></div>

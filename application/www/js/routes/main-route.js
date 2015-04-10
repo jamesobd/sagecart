@@ -25,15 +25,23 @@ App.Routes.MainRoute = Backbone.Router.extend({
         'product/:id': 'productPage',
         'category(/:id)': 'categoryPage',
         'cart': 'cartPage',
-        'search': 'searchPage'
+        'search': 'searchPage',
+        '*page':  'defaultPage' // Catch-all default page
     },
 
     /**
-     * Display the shopping cart home page
+     * Home page
      */
-    homePage: function () {
-        console.log('Navigated to the home page');
-        this.layout.switchPage(new App.Views.BasicView({template: App.Templates['login-page']}).render());
+    homePage: function() {
+        this.defaultPage('login');
+    },
+
+    /**
+     * Default page route
+     * @param page
+     */
+    defaultPage: function(page) {
+        this.layout.switchPage(new App.Views.DefaultPageView({page: page, className: page + '-page'}).render());
     },
 
     /**

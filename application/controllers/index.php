@@ -22,22 +22,9 @@ class Index extends CI_Controller {
      * -------------------------------------------------------------------------
      */
     public function index() {
-        $contact = $this->session->userdata('contact');
-
-        $this->load->view('home');
+        $this->load->view('main');
     }
 
-
-    public function shop() {
-        $contact = $this->session->userdata('contact');
-
-        // If the user is not authenticated
-        if (!$contact) {
-            $this->load->view('shop');
-        } else {
-            redirect('/', 'refresh');
-        }
-    }
 
     /**
      * -------------------------------------------------------------------------

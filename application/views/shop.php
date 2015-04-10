@@ -124,10 +124,10 @@
 <script src="/js/views/cart-bar-view.js"></script>
 <script src="/js/views/nav-view.js"></script>
 <script src="/js/views/content-view.js"></script>
-<script src="/js/views/basic-view.js"></script>
+<script src="/js/views/pages/default-page-view.js"></script>
 <script src="/js/views/layouts/example-layout.js"></script>
 <script src="/js/views/pages/product-list-page.js"></script>
-<script src="/js/views/pages/cart-page.js"></script>
+<script src="/js/views/pages/cart-page-view.js"></script>
 <script src="/js/views/partials/product-list-item-view.js"></script>
 <script src="/js/views/partials/product-list-cart-item-view.js"></script>
 <script src="/js/views/partials/product-list-view.js"></script>
