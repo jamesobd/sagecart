@@ -115,7 +115,7 @@
         <div class="catalog-block">
             <div class="container">
                 <ul class="catalog">
-                    <li class="has-submenu"><a href="/shop-filters-left-3cols.html">Handbag<i
+                    <li class="has-submenu"><a href="/shop-filters-left-3cols">Handbag<i
                                 class="fa fa-chevron-down"></i></a>
                         <ul class="submenu">
                             <li><a href="#">Wristlet</a></li>
@@ -150,11 +150,11 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="/shop-filters-left-3cols.html">Wallet</a></li>
-                    <li><a href="/shop-filters-left-3cols.html">Satchel</a></li>
-                    <li><a href="/shop-filters-left-3cols.html">Clutch</a></li>
-                    <li><a href="/shop-filters-left-3cols.html">Hobo bags</a></li>
-                    <li><a href="/shop-filters-left-3cols.html">Shoulder Bag</a></li>
+                    <li><a href="/shop-filters-left-3cols">Wallet</a></li>
+                    <li><a href="/shop-filters-left-3cols">Satchel</a></li>
+                    <li><a href="/shop-filters-left-3cols">Clutch</a></li>
+                    <li><a href="/shop-filters-left-3cols">Hobo bags</a></li>
+                    <li><a href="/shop-filters-left-3cols">Shoulder Bag</a></li>
                 </ul>
             </div>
         </div>
@@ -167,11 +167,11 @@
                 <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i
                         class="icon-profile"></i> <span><b>L</b>ogin</span></a>
 
-                <a class="btn-outlined-invert" href="/wishlist.html"><i class="icon-heart"></i>
+                <a class="btn-outlined-invert" href="/wishlist"><i class="icon-heart"></i>
                     <span><b>W</b>ishlist</span></a>
 
                 <div class="cart-btn">
-                    <a class="btn btn-outlined-invert" href="/shopping-cart.html"><i
+                    <a class="btn btn-outlined-invert" href="/shopping-cart"><i
                             class="icon-shopping-cart-content"></i><span>3</span><b>36 5654</b></a>
 
                     <!--Cart Dropdown-->
@@ -209,8 +209,8 @@
                         </div>
                         <div class="footer group">
                             <div class="buttons">
-                                <a class="btn btn-outlined-invert" href="/checkout.html"><i class="icon-download"></i>Checkout</a>
-                                <a class="btn btn-outlined-invert" href="/shopping-cart.html"><i
+                                <a class="btn btn-outlined-invert" href="/checkout"><i class="icon-download"></i>Checkout</a>
+                                <a class="btn btn-outlined-invert" href="/shopping-cart"><i
                                         class="icon-shopping-cart-content"></i>To cart</a>
                             </div>
                             <div class="total">93 389 $</div>
@@ -302,7 +302,7 @@
         <div class="row">
             <div class="col-lg-5 col-md-5 col-sm-5">
                 <div class="info">
-                    <a class="logo" href="/index.html"><img src="/img/logo-footer.png" alt="Limo"/></a>
+                    <a class="logo" href="/"><img src="/img/logo-footer.png" alt="Limo"/></a>
 
                     <p>Describe the mission of your online store and the advantages a customer can get once he makes a
                         purchase. If you have something to tell let customers know about it.</p>
