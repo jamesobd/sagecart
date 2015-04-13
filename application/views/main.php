@@ -378,6 +378,7 @@
 <script src="/js/vendor/owl.carousel.min.js"></script>
 <script src="/js/vendor/masterslider.min.js"></script>
 <script src="/js/vendor/jquery.nouislider.min.js"></script>
+<script src="/js/scripts.js"></script>
 
 <script src="/js/custom/jquery.serializeObject.js"></script>
 <script src="/js/custom/jquery.postJSON.js"></script>
