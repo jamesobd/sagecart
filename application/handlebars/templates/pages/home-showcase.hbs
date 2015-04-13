@@ -320,3 +320,20 @@
         </div>
     </div>
 </section><!--Info Block Close-->
+
+<script>
+    /*Parallax Backgrounds
+ *******************************************/
+    $(window).on('load', function(){
+        /*Checking if it's touch device we disable parallax feature due to inconsistency*/
+        if (Modernizr.touch) {
+            $('body').removeClass('parallax');
+        }
+        $('.parallax').stellar({
+            horizontalScrolling: false,
+            responsive:true
+        });
+    });
+
+
+</script>
