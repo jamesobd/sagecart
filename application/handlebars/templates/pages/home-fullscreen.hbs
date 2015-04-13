@@ -567,4 +567,113 @@
         view: 'mask',
         instantStartLayers: true
     });
+
+    /*Gallery Filtering and Responsiveness Function
+*******************************************/
+    var gallery = (function ($) {
+        'use strict';
+
+        var $grid = $('.gallery-grid'),
+                $filterOptions = $('.filters'),
+                $sizer = $grid.find('.shuffle__sizer'),
+
+                init = function () {
+
+                    // None of these need to be executed synchronously
+                    setTimeout(function () {
+                        listen();
+                        setupFilters();
+                    }, 100);
+
+                    $grid.on('loading.shuffle done.shuffle shrink.shuffle shrunk.shuffle filter.shuffle filtered.shuffle sorted.shuffle layout.shuffle', function (evt, shuffle) {
+                        // Make sure the browser has a console
+                        if (window.console && window.console.log && typeof window.console.log === 'function') {
+                            console.log('Shuffle:', evt.type);
+                        }
+                    });
+
+                    // instantiate the plugin
+                    $grid.shuffle({
+                        itemSelector: '.gallery-item',
+                        sizer: $sizer
+                    });
+                },
+
+        // Set up button clicks
+                setupFilters = function () {
+                    var $btns = $filterOptions.children();
+                    $btns.on('click', function (e) {
+                        var $this = $(this),
+                                isActive = $this.hasClass('active'),
+                                group = $this.data('group');
+                        $('.filters .active').removeClass('active');
+                        $this.addClass('active');
+
+                        // Filter elements
+                        $grid.shuffle('shuffle', group);
+                        e.preventDefault();
+                    });
+
+                    $btns = null;
+                },
+
+                listen = function () {
+                    var debouncedLayout = $.throttle(300, function () {
+                        $grid.shuffle('update');
+                    });
+
+                    // Get all images inside shuffle
+                    $grid.find('img').each(function () {
+                        var proxyImage;
+
+                        // Image already loaded
+                        if (this.complete && this.naturalWidth !== undefined) {
+                            return;
+                        }
+
+                        // If none of the checks above matched, simulate loading on detached element.
+                        proxyImage = new Image();
+                        $(proxyImage).on('load', function () {
+                            $(this).off('load');
+                            debouncedLayout();
+                        });
+
+                        proxyImage.src = this.src;
+                    });
+
+                    // Because this method doesn't seem to be perfect.
+                    setTimeout(function () {
+                        debouncedLayout();
+                    }, 500);
+                };
+
+        return {
+            init: init
+        };
+    }(jQuery));
+
+    $(function () {
+        gallery.init();
+        $('.gallery-grid').lightGallery({
+            speed: 400
+        });
+    });
+
+    $('.brand-carousel .inner').owlCarousel({
+        // Define custom and unlimited items depending from the width
+        // If this option is set, itemsDeskop, itemsDesktopSmall, itemsTablet, itemsMobile etc. are disabled
+        // For better preview, order the arrays by screen size, but it's not mandatory
+        // Don't forget to include the lowest available screen size, otherwise it will take the default one for screens lower than lowest available.
+        // In the example there is dimension with 0 with which cover screens between 0 and 450px
+        itemsCustom: [
+            [0, 1],
+            [340, 2],
+            [580, 3],
+            [991, 4],
+            [1200, 5]
+        ],
+        navigation: true,
+        theme: "",
+        navigationText: ["", ""]
+    });
 </script>
