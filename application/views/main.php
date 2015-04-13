@@ -378,7 +378,6 @@
 <script src="/js/vendor/owl.carousel.min.js"></script>
 <script src="/js/vendor/masterslider.min.js"></script>
 <script src="/js/vendor/jquery.nouislider.min.js"></script>
-<script src="/js/limo-theme.js"></script>
 
 <script src="/js/custom/jquery.serializeObject.js"></script>
 <script src="/js/custom/jquery.postJSON.js"></script>
@@ -397,14 +396,22 @@
 </script>
 <script src="/js/custom/templates.js"></script>
 
+<!-- Models -->
 <script src="/js/models/contact.js"></script>
 <script src="/js/models/category.js"></script>
 <script src="/js/models/product.js"></script>
+
+<!-- Collections-->
 <script src="/js/collections/categories.js"></script>
 <script src="/js/collections/products.js"></script>
+
+<!-- Views -->
 <script src="/js/views/layouts/main-layout.js"></script>
 <script src="/js/views/pages/default-page-view.js"></script>
+
+<!-- Routes -->
 <script src="/js/routes/main-route.js"></script>
+
 
 <div class="modal-backdrop fade in" style="display: none"></div>
 </body>

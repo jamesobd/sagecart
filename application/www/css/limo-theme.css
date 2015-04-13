@@ -13796,25 +13796,25 @@ header .search-form .close-search:hover {
   clear: both;
   height: 0;
 }
-#content .login-page {
+#content .log-reg {
   margin-bottom: 72px;
 }
-#content .login-page h2 {
+#content .log-reg h2 {
   color: #292c2e;
 }
-#content .login-page .social-login {
+#content .log-reg .social-login {
   margin-bottom: 24px;
 }
-#content .login-page > .large {
+#content .log-reg > .large {
   color: #ff9016;
 }
-#content .login-page .registr-form {
+#content .log-reg .registr-form {
   margin-left: 32px;
   padding-left: 64px;
   border-left: 2px solid #292c2e;
 }
 @media only screen and (max-width: 768px) {
-  #content .login-page .registr-form {
+  #content .log-reg .registr-form {
     margin-left: 0;
     margin-top: 48px;
     padding-left: 0;
