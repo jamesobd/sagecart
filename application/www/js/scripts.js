@@ -1,4 +1,7 @@
-$(function() {
+$(function () {
+    var $searchBtn = $('.search-btn');
+    var $searchForm = $('.search-form');
+    var $closeSearch = $('.close-search');
     var $qcForm = $('.quick-contact');
     var $contForm = $('.contact-form');
     var $checkoutForm = $('#checkout-form');
@@ -10,6 +13,18 @@ $(function() {
     var $submenuToggle = $('.menu .has-submenu > a > i');
     var $scrollTopBtn = $('#scrollTop-btn');
     var $qcfBtn = $('#qcf-btn');
+
+    /*Search Form Toggle
+     *******************************************/
+    $searchBtn.click(function () {
+        $searchForm.removeClass('closed').addClass('open');
+    });
+    $closeSearch.click(function () {
+        $searchForm.removeClass('open').addClass('closed');
+    });
+    $('.page-content, .subscr-widget, footer').click(function () {
+        $searchForm.removeClass('open').addClass('closed');
+    });
 
     /*Quick Contact Form Validation
      *******************************************/
@@ -36,14 +51,14 @@ $(function() {
 
     /*Small Header slide down on scroll
      *******************************************/
-    if($(window).width() >= 500){
-        $(window).on('scroll', function(){
-            if($(window).scrollTop() > $headerOffsetTop ){
+    if ($(window).width() >= 500) {
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() > $headerOffsetTop) {
                 $header.addClass('small-header');
             } else {
                 $header.removeClass('small-header');
             }
-            if($(window).scrollTop() > $headerStuck ){
+            if ($(window).scrollTop() > $headerStuck) {
                 $header.addClass('stuck');
             } else {
                 $header.removeClass('stuck');
@@ -55,12 +70,12 @@ $(function() {
     /*Mobile Navigation
      *******************************************/
     //Mobile menu toggle
-    $menuToggle.click(function(){
+    $menuToggle.click(function () {
         $menu.toggleClass('expanded');
     });
 
     //Submenu Toggle
-    $submenuToggle.click(function(e){
+    $submenuToggle.click(function (e) {
         $(this).toggleClass('open');
         $(this).parent().parent().find('.submenu').toggleClass('open');
         e.preventDefault();
@@ -69,23 +84,23 @@ $(function() {
     /*Sticky Buttons
      *******************************************/
     //Scroll to Top Button
-    $(window).scroll(function(){
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 500) {
             $scrollTopBtn.parent().addClass('scrolled');
         } else {
             $scrollTopBtn.parent().removeClass('scrolled');
         }
     });
-    $scrollTopBtn.click(function(){
-        $('html, body').animate({scrollTop : 0}, {duration: 700, easing:"easeOutExpo"});
+    $scrollTopBtn.click(function () {
+        $('html, body').animate({scrollTop: 0}, {duration: 700, easing: "easeOutExpo"});
     });
 
     //Quick Contact Form
-    $qcfBtn.click(function(){
+    $qcfBtn.click(function () {
         $(this).toggleClass('active');
         $(this).parent().find('.quick-contact').toggleClass('visible');
     });
-    $('.page-content, .subscr-widget, footer, header').click(function(){
+    $('.page-content, .subscr-widget, footer, header').click(function () {
         $qcfBtn.removeClass('active');
         $('.quick-contact').removeClass('visible');
     });
@@ -93,7 +108,7 @@ $(function() {
     /*History page img switcher
      *******************************************/
 
-    $('.panel-heading').click(function(){
+    $('.panel-heading').click(function () {
         var hisroryID = $(this).data('img');
         $('.delivery-preview').removeClass('historyImgShow');
         $(hisroryID).addClass('historyImgShow');
