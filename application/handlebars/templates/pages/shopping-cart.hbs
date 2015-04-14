@@ -222,3 +222,57 @@
         </div>
     </div>
 </section><!--Brands Carousel Close-->
+
+<script>
+    //Add(+/-) Button Number Incrementers
+    $(".incr-btn").on("click", function(e) {
+        var $button = $(this);
+        var oldValue = $button.parent().find("input").val();
+        if ($button.text() == "+") {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below 1
+            if (oldValue > 1) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 1;
+            }
+        }
+        $button.parent().find("input").val(newVal);
+        e.preventDefault();
+    });
+
+    $('.brand-carousel .inner').owlCarousel({
+        // Define custom and unlimited items depending from the width
+        // If this option is set, itemsDeskop, itemsDesktopSmall, itemsTablet, itemsMobile etc. are disabled
+        // For better preview, order the arrays by screen size, but it's not mandatory
+        // Don't forget to include the lowest available screen size, otherwise it will take the default one for screens lower than lowest available.
+        // In the example there is dimension with 0 with which cover screens between 0 and 450px
+        itemsCustom: [
+            [0, 1],
+            [340, 2],
+            [580, 3],
+            [991, 4],
+            [1200, 5]
+        ],
+        navigation: true,
+        theme: "",
+        navigationText: ["", ""]
+    });
+
+    /*Shopping Cart Page
+ *******************************************/
+    //Deleting Items
+    $(document).on('click', '.shopping-cart .delete i', function(){
+        var $target = $(this).parent().parent();
+        var $positions = $('.shopping-cart .item');
+        $target.hide(300, function(){
+            $.when($target.remove()).then( function(){
+                if($positions.length === 1) {
+                    $('.shopping-cart .items-list').remove();
+                    $('.shopping-cart .title').text('Shopping cart is empty!');
+                }
+            });
+        });
+    });
+</script>

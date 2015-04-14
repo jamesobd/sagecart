@@ -9,7 +9,7 @@
 <section class="cart-message">
     <i class="fa fa-check-square"></i>
     <p class="p-style3">"Nikon" was successfully added to your cart.</p>
-    <a class="btn-outlined-invert btn-black btn-sm" href="shopping-cart.html">View cart</a>
+    <a class="btn-outlined-invert btn-black btn-sm" href="shopping-cart">View cart</a>
 </section><!--Shopping Cart Message Close-->
 
 <!--Catalog Single Item-->
@@ -309,3 +309,64 @@
         </div>
     </div>
 </section><!--Special Offer Close-->
+
+<script>
+    /*Catalog Single
+     *******************************************/
+    //Product Gallery
+    if($('#prod-gal').length > 0) {
+        var categorySlider = new MasterSlider();
+        categorySlider.control('thumblist' , {autohide:false ,dir:'h',align:'bottom', width:137, height:130, margin:15, space:0 , hideUnder:400});
+        categorySlider.setup('prod-gal' , {
+            width:550,
+            height:484,
+            speed: 25,
+            preload:'all',
+            loop:true,
+            view:'fade'
+        });
+    }
+
+    /*Promo Labels Popovers
+ *******************************************/
+    $('.promo-labels div').popover({
+        placement: 'top',
+        trigger: 'hover'
+    });
+
+    //Add(+/-) Button Number Incrementers
+    $(".incr-btn").on("click", function(e) {
+        var $button = $(this);
+        var oldValue = $button.parent().find("input").val();
+        if ($button.text() == "+") {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below 1
+            if (oldValue > 1) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 1;
+            }
+        }
+        $button.parent().find("input").val(newVal);
+        e.preventDefault();
+    });
+
+    /*Added To Cart Message + Action (For Demo Purpose)
+     **************************************************/
+    $('#addItemToCart').click(function(){
+        $('.cart-message').removeClass('visible');
+        var $itemName = $(this).parent().parent().find('h1').text();
+        var $itemPrice = $(this).parent().parent().find('.price').text();
+        var $itemQnty = $(this).parent().find('#quantity').val();
+        var $cartTotalItems = parseInt($('.cart-btn a span').text()) +1;
+        $('.cart-message').find('p').text('"' + $itemName + '"' + '  ' + 'was successfully added to your cart.');
+        $('.cart-dropdown table').append(
+                '<tr class="item"><td><div class="delete"></div><a href="#">' + $itemName +
+                '<td><input type="text" value="' + $itemQnty +
+                '"></td><td class="price">' + $itemPrice + '</td>'
+        );
+        $('.cart-btn a span').text($cartTotalItems);
+        $('.cart-message').addClass('visible');
+    });
+</script>
