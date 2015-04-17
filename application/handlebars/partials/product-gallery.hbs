@@ -1,6 +1,12 @@
-<div class="gallery-item" data-groups="{{itemcategories}}" data-src="{{itemimage}}">
-    <a href="{{itemimage}}">
-        <div class="overlay"><span><i class="icon-expand"></i></span></div>
-        <img src="{{itemimage}}" alt="{{itemcodedesc}}"/>
-    </a>
+<!--Product Gallery-->
+<div class="col-lg-6 col-md-6">
+    <div class="prod-gal master-slider" id="prod-gal">
+        <!--Slides-->
+        {{#each images}}
+            <div class="ms-slide">
+                <img src="/masterslider/blank.gif" data-src="{{this.image}}" alt="{{this.alt}}"/>
+                <img class="ms-thumb" src="{{this.thumb}}" alt="thumb" />
+            </div>
+        {{/each}}
+    </div>
 </div>
