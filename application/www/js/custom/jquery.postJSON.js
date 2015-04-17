@@ -6,5 +6,5 @@ $.postJSON = function (url, data, options) {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json'
     });
-    $.ajax(url, options);
+    return $.ajax(url, options);
 };

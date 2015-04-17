@@ -1,19 +1,18 @@
 App.Views.MainLayout = Backbone.View.extend({
     initialize: function (options) {
-        //this.toolbar = new App.Views.ToolbarView({collection: this.collection});
-        //this.footer = new App.Views.FooterView({collection: this.news});
+        //this.listenTo(this.model, 'login', )
     },
     el: 'body',
 
     events: {
         'click a[href^="/"]': 'navigateAnchor',
-        'submit form[action^="/"]': 'navigateForm'
+        'submit form[action^="/"]': 'navigateForm',
+        'submit form.login-form': 'login'
     },
 
 
     /**
      * Switches the #content view
-     * @param name
      * @param view
      */
     switchPage: function (view) {
@@ -21,12 +20,21 @@ App.Views.MainLayout = Backbone.View.extend({
         this.$('#content').html(view.el);
     },
 
+
+    /**
+     * Adjust this layout when a user logs-in
+     */
+    login: function (e) {
+        e.preventDefault();
+        this.model.login($(e.currentTarget).serializeObject());
+    },
+
     /**
      * Use History API on anchors by default since we are doing single page navigation
      */
     navigateAnchor: function (e) {
         e.preventDefault();
-        app.navigate($(e.target).attr('href'), {trigger: true});
+        app.navigate($(e.currentTarget).attr('href'), {trigger: true});
     },
 
     /**
@@ -34,7 +42,7 @@ App.Views.MainLayout = Backbone.View.extend({
      */
     navigateForm: function (e) {
         e.preventDefault();
-        app.navigate($(e.target).attr('action') + '?' + $(e.target).serialize(), {trigger: true});
+        app.navigate($(e.currentTarget).attr('action') + '?' + $(e.currentTarget).serialize(), {trigger: true});
         this.$('form')[0].reset();
     }
 });

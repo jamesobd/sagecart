@@ -29,8 +29,10 @@ class Request {
         $options['connecttimeout'] = empty($options['connecttimeout']) ? 60 : $options['connecttimeout'];
 
         // Set options and execute the request
+        curl_setopt($this->curlSession, CURLOPT_HTTPGET, true);
         curl_setopt($this->curlSession, CURLOPT_URL, $url);
         curl_setopt($this->curlSession, CURLOPT_CONNECTTIMEOUT, $options['connecttimeout']);
+        $this->setHeaders();
         $response = json_decode(curl_exec($this->curlSession));
 
         // TODO: Use the log environment variable to determine what logs get saved
@@ -63,9 +65,11 @@ class Request {
         $options['connecttimeout'] = empty($options['connecttimeout']) ? 60 : $options['connecttimeout'];
 
         // Set options and execute the request
+        curl_setopt($this->curlSession, CURLOPT_POST, true);
         curl_setopt($this->curlSession, CURLOPT_URL, $url);
         curl_setopt($this->curlSession, CURLOPT_CONNECTTIMEOUT, $options['connecttimeout']);
         curl_setopt($this->curlSession, CURLOPT_POSTFIELDS, json_encode($body, JSON_UNESCAPED_SLASHES));
+        $this->setHeaders();
         $response = json_decode(curl_exec($this->curlSession));
 
         // TODO: Use the log environment variable to determine what logs get saved
@@ -83,5 +87,15 @@ class Request {
         }
 
         return $returnObject;
+    }
+
+    private function setHeaders() {
+        $contact = $this->CI->session->userdata('contact');
+
+        $headers = array('Content-Type: application/json');
+        if (isset($contact['guid'])) {
+            $headers[] = 'GUID: ' . $contact['guid'];
+        }
+        curl_setopt($this->curlSession, CURLOPT_HTTPHEADER, $headers);
     }
 }

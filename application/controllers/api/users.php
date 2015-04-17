@@ -1,9 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Class Contacts
+ * Class Users
  */
-class Contacts extends CI_Controller {
+class Users extends CI_Controller {
 
     /**
      * Class constructor
@@ -12,7 +12,7 @@ class Contacts extends CI_Controller {
         parent::__construct();
 
         $this->load->library(array('form_validation', 'response'));
-        $this->load->model('contacts_model');
+        $this->load->model('users_model');
 
         $_POST = json_decode(file_get_contents('php://input'), TRUE);
     }
@@ -30,12 +30,12 @@ class Contacts extends CI_Controller {
     /**
      * Get a contact
      *
-     * @param $contact_id
+     * @param $user_id
      * @return string - JSON
      */
-    public function get($contact_id) {
-        // If the $contact_id is @me then we assume it's the authenticated user
-        if ($contact_id == '@me') {
+    public function get($user_id) {
+        // If the $user_id is @me then we assume it's the authenticated user
+        if ($user_id == '@me') {
             $contact = $this->session->userdata('contact');
         } else {
             $contact = FALSE;
@@ -45,6 +45,9 @@ class Contacts extends CI_Controller {
         if (!$contact) {
             $this->response->send(array('status' => 'error', 'message' => 'Unauthorized'), 401);
         }
+
+        // Filter data that is sent to the front-end
+        unset($contact['guid']);
 
         // Get the contact
         $this->response->send($contact);
@@ -64,7 +67,7 @@ class Contacts extends CI_Controller {
 
         // Validate data
         $_POST = json_decode(file_get_contents('php://input'), TRUE);
-        $this->form_validation->set_rules('email', 'email', 'required|valid_email');
+        $this->form_validation->set_rules('username', 'username', 'required'); // TODO: add valid_email once we start using emails
         $this->form_validation->set_rules('password', 'password', 'required');
 
         // If the form did not validate
@@ -73,59 +76,54 @@ class Contacts extends CI_Controller {
         }
 
         // Find the contact with the username/password combo
-        $response = $this->contacts_model->getByEmailAndPassword($this->input->post('email'), $this->input->post('password'));
+        $response = $this->users_model->getByEmailAndPassword($this->input->post('username'), $this->input->post('password'));
 
         // If there was an error
         if (isset($response->status) && $response->status == 'error') {
             $this->response->send($response, $response->code);
         }
 
-        // Find the correct address.  This is a hack until the SAGE API gives us the correct one.
-        $address = array();
-        foreach ($response->ShipToAddresses as $shipToAddress) {
-            if ($shipToAddress->ShipToCode == $response->shipToCode) {
-                $address = $shipToAddress;
-            }
-        }
-
         // Validate the contact info that is received from SAGE
         $_POST = (array)$response;
-        $this->form_validation->set_rules('UID', 'UID', 'required');
-        $this->form_validation->set_rules('ContactName', 'Contact Name', '');
-        $this->form_validation->set_rules('CustomerName', 'Customer Name', '');
-        $this->form_validation->set_rules('UDF_IT_CATEGORY', 'UDF_IT_CATEGORY', '');
+        $this->form_validation->set_rules('guid', 'GUID', 'required');
+        $this->form_validation->set_rules('username', 'User Name', 'required');
+        $this->form_validation->set_rules('contactname', 'Contact Name', 'required');
+        $this->form_validation->set_rules('customername', 'Customer Name', 'required');
+        $this->form_validation->set_rules('emailaddress', 'Email Address', 'required|valid_email');
 
         // If the form did not validate
         if ($this->form_validation->run() == FALSE) {
             $messages = array_merge(array('There was a problem with the contact information returned from SAGE.'), array_values($this->form_validation->error_array()));
             // TODO: Send email notification that there was a problem
+            $this->response->send($messages, 400);
         }
 
         // Filter the data
         $contact = array(
-            'UID' => $response->UID,
-            'ContactName' => $response->ContactName,
-            'CustomerName' => $response->CustomerName,
-            'EmailAddress' => $response->EmailAddress,
-            "UDF_IT_CATEGORY" => $response->UDF_IT_CATEGORY,
-            'ShipToAddress' => $address,
+            'guid' => $response->guid,
+            'username' => $response->username,
+            'contactname' => $response->contactname,
+            'customername' => $response->customername,
+            'emailaddress' => $response->emailaddress,
         );
 
+        // Save the contact in the session
+        $this->session->set_userdata('contact', $contact);
+
+        // Filter data that is sent to the database and front-end
+        unset($contact['guid']);
+
         // Update the contact info in the database
-        $this->contacts_model->update($contact['EmailAddress'], $contact, array('upsert' => 'true'));
+        $this->users_model->update($contact['username'], $contact);
 
         // Sync products and categories
+        // TODO: Limit the number of times we do a sync.  Maybe once per day or have this be an asynchronous call
         $this->load->model('products_model');
         $response = $this->products_model->sync($contact);
         if ($response->status != 'success') {
             $this->response->send(array('status' => 'error', 'message' => 'Could not sync products with SAGE'), 400);
         }
-
-        // Save the contact in the session
-        $this->session->set_userdata('contact', $contact);
-
-        // Filter data that is sent to the front-end
-        unset($contact['UID']);
+        // TODO: Sync categories too
 
         $this->response->send($contact, 200);
     }

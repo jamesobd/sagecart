@@ -321,4 +321,42 @@
         theme: "",
         navigationText: ["", ""]
     });
+
+    /*Catalog Filters
+ *******************************************/
+    //Price Slider Range
+    var $minVal = parseInt($('#minVal').attr('data-min-val'));
+    var $maxVal = parseInt($('#maxVal').attr('data-max-val'));
+    var $startMin = parseInt($('#minVal').val());
+    var $startMax = parseInt($('#maxVal').val());
+    if($('#price-range').length > 0){
+        $('#price-range').noUiSlider({
+            range: {
+                'min': $minVal,
+                'max': $maxVal
+            },
+            start: [$startMin,$startMax],
+            connect: true,
+            serialization: {
+                lower: [
+                    $.Link({
+                        target: $('#minVal'),
+                        format: {
+                            decimals: 0
+                        }
+                    })
+                ],
+                upper: [
+                    $.Link({
+                        target: $('#maxVal'),
+                        format: {
+                            decimals: 0
+                        }
+                    })
+                ]
+            }
+        });
+    }
+
+
 </script>

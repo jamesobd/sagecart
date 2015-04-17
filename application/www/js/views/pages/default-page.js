@@ -1,4 +1,4 @@
-App.Views.DefaultPageView = Backbone.View.extend({
+App.Views.DefaultPage = Backbone.View.extend({
     initialize: function(params) {
         // TODO: if the params.page does not exist in App.Templates then show a 404
         this.template = App.Templates['pages/' + params.page];

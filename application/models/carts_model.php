@@ -1,6 +1,6 @@
 <?php
 
-class Products_Model extends CI_Model {
+class Carts_Model extends CI_Model {
 
     // Class variables
     var $collection;
@@ -16,31 +16,31 @@ class Products_Model extends CI_Model {
 
     /*
     |--------------------------------------------------------------------------
-    | Products CRUD methods
+    | Carts CRUD methods
     |--------------------------------------------------------------------------
     */
 
     /**
-     * Create a product
+     * Create a cart item
      *
      * @param       $contact
      * @param array $data
      * @return mixed
      */
     public function create($contact, array $data) {
-        // Try to update
+        // Build upsert query
         $updateData = array();
         foreach ($data as $key => $value) {
-            $updateData['_Products.$.' . $key] = $value;
+            $updateData['cart.$.' . $key] = $value;
         }
 
-        // Try to update the "comment product"
+        // Try to upsert
         if ($data['ItemCode']) {
-            $writeResults = $this->collection->update(array("EmailAddress" => $contact['EmailAddress'], "_Products.ItemCode" => $data['ItemCode']), array('$set' => $updateData));
+            $writeResults = $this->collection->update(array("EmailAddress" => $contact['EmailAddress'], "_Carts.ItemCode" => $data['ItemCode']), array('$set' => $updateData));
 
-            // If no products were updated we push
+            // If no carts were updated we push
             if ($writeResults['n'] == 0) {
-                $this->collection->update(array("EmailAddress" => $contact['EmailAddress']), array('$push' => array('_Products' => $data)));
+                $this->collection->update(array("EmailAddress" => $contact['EmailAddress']), array('$push' => array('_Carts' => $data)));
             }
         }
 
@@ -48,54 +48,54 @@ class Products_Model extends CI_Model {
     }
 
     /**
-     * Get all products
+     * Get all carts
      *
-     * @param      $contact - The contact to get products from
+     * @param      $contact - The contact to get carts from
      * @return mixed
      */
     public function getAll($contact) {
-        // Get the products from the database
-        return $this->collection->findOne(array("username" => $contact['username']), array('products' => TRUE))['products'];
+        // Get the carts from the database
+        return $this->collection->findOne(array("username" => $contact['username']), array('carts' => TRUE))['carts'];
     }
 
     /**
-     * Get a product
+     * Get a carts
      *
      * @param     $contact
-     * @param int $product_id
+     * @param int $carts_id
      * @return mixed
      */
-    public function get($contact, $product_id) {
-        $products = $this->getAll($contact);
+    public function get($contact, $carts_id) {
+        $carts = $this->getAll($contact);
 
-        foreach ($products as $product) {
-            if ($product['ItemCode'] == $product_id) {
-                return $product;
+        foreach ($carts as $carts) {
+            if ($carts['ItemCode'] == $carts_id) {
+                return $carts;
             }
         }
         return array();
     }
 
     /**
-     * Update products
+     * Update carts
      *
      * @param       $contact    - The contact to do the update for
-     * @param int   $product_id - The product to update
-     * @param array $data       - Updated product info
+     * @param int   $carts_id - The carts to update
+     * @param array $data       - Updated carts info
      * @return mixed
      */
-    public function update($contact, $product_id, array $data) {
+    public function update($contact, $carts_id, array $data) {
         $updateData = array();
         foreach ($data as $key => $value) {
-            $updateData['_Products.$.' . $key] = $value;
+            $updateData['_Carts.$.' . $key] = $value;
         }
-        $this->collection->update(array("EmailAddress" => $contact['EmailAddress'], "_Products.ItemCode" => $product_id), array('$set' => $updateData));
-        return $this->get($contact, $product_id);
+        $this->collection->update(array("EmailAddress" => $contact['EmailAddress'], "_Carts.ItemCode" => $carts_id), array('$set' => $updateData));
+        return $this->get($contact, $carts_id);
     }
 
     /*
     |--------------------------------------------------------------------------
-    | Products non-CRUD methods
+    | Carts non-CRUD methods
     |--------------------------------------------------------------------------
     */
 
@@ -115,35 +115,35 @@ class Products_Model extends CI_Model {
             $url = $this->config->item('sage_api_url') . 'cart?Method=insert&UID=' . $contact['UID'];
         }
 
-        // Get all products for $contact
-        $products = $this->getAll($contact);
+        // Get all carts for $contact
+        $carts = $this->getAll($contact);
 
         $orderLines = array();
-        foreach ($products as $product) {
+        foreach ($carts as $carts) {
 
-            // Handle "comment products"
-            if ($product['ItemCode'] === "/C") {
+            // Handle "comment carts"
+            if ($carts['ItemCode'] === "/C") {
                 $orderLines[] = array(
-                    'itemCode' => $product['ItemCode'],
-                    'commentText' => str_replace('{', '%7B', str_replace('}', '%7D', str_replace('[', '%5B', str_replace(']', '%5D', str_replace('"', '%22', str_replace(',', '%2C', $product['CommentText'])))))),
+                    'itemCode' => $carts['ItemCode'],
+                    'commentText' => str_replace('{', '%7B', str_replace('}', '%7D', str_replace('[', '%5B', str_replace(']', '%5D', str_replace('"', '%22', str_replace(',', '%2C', $carts['CommentText'])))))),
                 );
-            } else if (isset($product['_Quantity']) && $product['_Quantity'] > 0) {
+            } else if (isset($carts['_Quantity']) && $carts['_Quantity'] > 0) {
 
                 // If the quantity is not greater than 0
                 $orderLines[] = array(
-                    'itemCode' => $product['ItemCode'],
-                    'quantity' => (string)$product['_Quantity'],
+                    'itemCode' => $carts['ItemCode'],
+                    'quantity' => (string)$carts['_Quantity'],
                 );
             } else {
 
-                // Go to the next product
+                // Go to the next carts
                 continue;
             }
         }
 
-        // If there are no products in the order
+        // If there are no carts in the order
         if (empty($orderLines) || sizeof($orderLines) == 1 && $orderLines[0]['itemCode'] == '/C') {
-            return (object)array('status' => 'error', 'message' => 'There are no products in the cart', 'code' => 400);
+            return (object)array('status' => 'error', 'message' => 'There are no carts in the cart', 'code' => 400);
         } else {
             $data['OrderLines'] = $orderLines;
         }
@@ -191,42 +191,42 @@ class Products_Model extends CI_Model {
         // Compare the cart from SAGE to the cart in the database for comparison discrepancies
         $errorMessages = array();
         foreach ($response->body->resource->Detail as &$sageProduct) {
-            // Search through the products and find one with the same ItemCode
-            foreach ($products as $product) {
-                if ($sageProduct->ItemCode == $product['ItemCode']) {
+            // Search through the carts and find one with the same ItemCode
+            foreach ($carts as $carts) {
+                if ($sageProduct->ItemCode == $carts['ItemCode']) {
                     // Check if all important info is still the same
-                    $productErrors = array();
-                    if ($sageProduct->Quantity != $product['_Quantity']) {
-                        $productErrors[] = 'The Quantity has changed';
+                    $cartsErrors = array();
+                    if ($sageProduct->Quantity != $carts['_Quantity']) {
+                        $cartsErrors[] = 'The Quantity has changed';
                     }
-                    if ($sageProduct->UnitPrice != $product['CustomerPrice']) {
-                        $productErrors[] = 'The Customer Price has changed';
+                    if ($sageProduct->UnitPrice != $carts['CustomerPrice']) {
+                        $cartsErrors[] = 'The Customer Price has changed';
                     }
-                    if (round($sageProduct->ExtensionAmt, 2) != round($product['CustomerPrice'] * $product['_Quantity'], 2)) {
-                        $productErrors[] = 'The Total Price does not match the price on the system (' . $sageProduct->ExtensionAmt . ')';
+                    if (round($sageProduct->ExtensionAmt, 2) != round($carts['CustomerPrice'] * $carts['_Quantity'], 2)) {
+                        $cartsErrors[] = 'The Total Price does not match the price on the system (' . $sageProduct->ExtensionAmt . ')';
                     }
-                    if ($sageProduct->ItemCodeDesc != $product['ItemCodeDesc']) {
-                        $productErrors[] = 'The Item Title has changed';
+                    if ($sageProduct->ItemCodeDesc != $carts['ItemCodeDesc']) {
+                        $cartsErrors[] = 'The Item Title has changed';
                     }
-                    if ($sageProduct->ExtendedDescriptionText != $product['ExtendedDescriptionText']) {
-                        $productErrors[] = 'The Item Description has changed';
+                    if ($sageProduct->ExtendedDescriptionText != $carts['ExtendedDescriptionText']) {
+                        $cartsErrors[] = 'The Item Description has changed';
                     }
 
                     // If there are any errors then add it to the $errorMessages array
-                    if (!empty($productErrors)) {
-                        $errorMessages[$product['ItemCode']] = $productErrors;
+                    if (!empty($cartsErrors)) {
+                        $errorMessages[$carts['ItemCode']] = $cartsErrors;
                     }
                 }
             }
         }
 
-        // If the product comparison check fails
+        // If the carts comparison check fails
         if (!empty($errorMessages)) {
             return (object)array(
                 'status' => 'error',
                 'code' => 409,
-                'message' => 'The products in the cart have recently changed.',
-                'details' => 'The SAGE cart has different product details than the ones are in the database',
+                'message' => 'The carts in the cart have recently changed.',
+                'details' => 'The SAGE cart has different carts details than the ones are in the database',
             );
         }
 
@@ -257,36 +257,36 @@ class Products_Model extends CI_Model {
     }
 
     /**
-     * Clears the product quantities and removes the "comment product".
+     * Clears the carts quantities and removes the "comment carts".
      *
      * @param $contact
      * @return mixed
      */
     public function clear($contact) {
-        $products = $this->collection->findOne(array("EmailAddress" => $contact['EmailAddress']))['_Products'];
-        for ($i = 0; $i < sizeof($products); $i++) {
-            unset($products[$i]['_Quantity']);
+        $carts = $this->collection->findOne(array("EmailAddress" => $contact['EmailAddress']))['_Carts'];
+        for ($i = 0; $i < sizeof($carts); $i++) {
+            unset($carts[$i]['_Quantity']);
 
-            // Remove "comment product"
-            //if ($products[$i]['ItemCode'] == '/C') {
-            //    unset($products[$i]);
+            // Remove "comment carts"
+            //if ($carts[$i]['ItemCode'] == '/C') {
+            //    unset($carts[$i]);
             //}
         }
 
-        $this->collection->update(array("EmailAddress" => $contact['EmailAddress']), array('$set' => array('_Products' => $products)));
+        $this->collection->update(array("EmailAddress" => $contact['EmailAddress']), array('$set' => array('_Carts' => $carts)));
         return (object)array('status' => 'success', 'code' => 200);
     }
 
 
     /**
-     * Sync's the SAGE products and categories to our database
+     * Sync's the SAGE carts and categories to our database
      *
      * @param $contact
      * @return object - Status of sync
      */
     public function sync($contact) {
-        // Get an updated list of products
-        $url = $this->config->item('sage_api_url') . 'products?offset=20&limit=10';
+        // Get an updated list of carts
+        $url = $this->config->item('sage_api_url') . 'carts?offset=20&limit=10';
         $response = $this->request->get($url);
 
         // If there was a CURL error
@@ -304,17 +304,17 @@ class Products_Model extends CI_Model {
             );
         }
 
-        if (!is_array($response->body->products)) {
+        if (!is_array($response->body->carts)) {
             return (object)array(
                 'status' => 'error',
                 'code' => 404,
                 'message' => 'Not Found',
-                'details' => 'The SAGE API returned no products',
+                'details' => 'The SAGE API returned no carts',
             );
         }
 
-        // Save the products to the database
-        $this->collection->update(array("username" => $contact['username']), array('$set' => array('products' => $response->body->products)));
+        // Save the carts to the database
+        $this->collection->update(array("username" => $contact['username']), array('$set' => array('carts' => $response->body->carts)));
 
         return (object)array('status' => 'success', 'code' => 200);
     }

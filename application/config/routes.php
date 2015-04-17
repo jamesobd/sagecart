@@ -47,8 +47,8 @@ if (php_sapi_name() === 'cli' OR defined('STDIN')) {
 }
 
 // RESTful actions (non-CRUD)
-$route['api/contacts/login'] = 'api/contacts/login'; // LOGIN
-$route['api/contacts/logout'] = 'api/contacts/logout'; // LOGOUT
+$route['api/users/login'] = 'api/users/login'; // LOGIN
+$route['api/users/logout'] = 'api/users/logout'; // LOGOUT
 $route['api/products/test'] = 'api/products/test';
 $route['api/products/checkout'] = 'api/products/checkout'; // CHECKOUT
 $route['api/products/submit'] = 'api/products/submit'; // SUBMIT

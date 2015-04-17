@@ -1,7 +1,44 @@
 (function() {
   var template = Handlebars.template, templates = App.Templates.Partials = App.Templates.Partials || {};
-Handlebars.partials['hero-slider'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<!--Hero Slider-->\r\n<section class=\"hero-slider\">\r\n    <div class=\"master-slider\" id=\"hero-slider\">\r\n\r\n        <!--Slide 1-->\r\n        <div class=\"ms-slide\" data-delay=\"7\">\r\n            <div class=\"overlay\"></div>\r\n            <img src=\"masterslider/blank.gif\" data-src=\"img/hero/slideshow/slide_1.jpg\" alt=\"\"/>\r\n            <h2 style=\"width: 456px; left: 110px; top: 110px;\" class=\"dark-color ms-layer\" data-effect=\"top(50,true)\" data-duration=\"700\" data-delay=\"250\" data-ease=\"easeOutQuad\">Look for all bags at our shop!</h2>\r\n            <p style=\"width: 456px; left: 110px; top: 210px;\" class=\"dark-color ms-layer\" data-effect=\"back(500)\" data-duration=\"700\" data-delay=\"500\" data-ease=\"easeOutQuad\">In this slider (which works both on touch screen and desktop devices) you can change the title, the description and button texts. It's all that you need to demonstrate your top rated products. </p>\r\n            <div style=\"left: 110px; top: 300px;\" class=\"ms-layer button\" data-effect=\"left(50,true)\" data-duration=\"500\" data-delay=\"750\" data-ease=\"easeOutQuad\"><a class=\"btn btn-black\" href=\"#\">Go to catalog</a></div>\r\n            <div style=\"left: 350px; top: 300px;\" class=\"ms-layer button\" data-effect=\"bottom(50,true)\" data-duration=\"700\" data-delay=\"950\" data-ease=\"easeOutQuad\"><a class=\"btn btn-primary\" href=\"#\">Browse all</a></div>\r\n        </div>\r\n\r\n        <!--Slide 2-->\r\n        <div class=\"ms-slide\" data-delay=\"7\">\r\n            <span class=\"overlay\"></span>\r\n            <img src=\"masterslider/blank.gif\" data-src=\"img/hero/slideshow/slide_2.jpg\" alt=\"Necessaire\"/>\r\n            <h2 style=\"width: 456px; left: 110px; top: 110px;\" class=\"dark-color ms-layer\" data-effect=\"bottom(50,true)\" data-duration=\"700\" data-delay=\"250\" data-ease=\"easeOutQuad\">Necessaire</h2>\r\n            <p style=\"width: 456px; left: 110px; top: 210px;\" class=\"dark-color ms-layer\" data-effect=\"bottom(50,true)\" data-duration=\"700\" data-delay=\"500\" data-ease=\"easeOutQuad\">In this slider (which works both on touch screen and desktop devices) you can change the title, the description and button texts. It's all that you need to demonstrate your top rated products. </p>\r\n            <div style=\"left: 110px; top: 330px;\" class=\"ms-layer button\" data-effect=\"left(50,true)\" data-duration=\"500\" data-delay=\"750\" data-ease=\"easeOutQuad\"><a class=\"btn btn-black\" href=\"#\">Go to catalog</a></div>\r\n            <div style=\"left: 350px; top: 330px;\" class=\"ms-layer button\" data-effect=\"bottom(50,true)\" data-duration=\"700\" data-delay=\"950\" data-ease=\"easeOutQuad\"><a class=\"btn btn-primary\" href=\"#\">Browse all</a></div>\r\n        </div>\r\n\r\n        <!--Slide 3-->\r\n        <div class=\"ms-slide\" data-delay=\"7\">\r\n            <div class=\"overlay\"></div>\r\n            <img src=\"masterslider/blank.gif\" data-src=\"img/hero/slideshow/slide_2.jpg\" alt=\"Crescent\"/>\r\n            <h2 style=\"width: 456px; left: 110px; top: 110px;\" class=\"dark-color ms-layer\" data-effect=\"left(50,true)\" data-duration=\"700\" data-delay=\"250\" data-ease=\"easeOutQuad\">Crescent</h2>\r\n            <p style=\"width: 456px; left: 110px; top: 210px;\" class=\"dark-color ms-layer\" data-effect=\"left(50,true)\" data-duration=\"700\" data-delay=\"500\" data-ease=\"easeOutQuad\">In this slider (which works both on touch screen and desktop devices) you can change the title, the description and button texts. It's all that you need to demonstrate your top rated products. </p>\r\n            <div style=\"left: 110px; top: 330px;\" class=\"ms-layer button\" data-effect=\"left(50,true)\" data-duration=\"500\" data-delay=\"750\" data-ease=\"easeOutQuad\"><a class=\"btn btn-black\" href=\"#\">Go to catalog</a></div>\r\n            <div style=\"left: 350px; top: 330px;\" class=\"ms-layer button\" data-effect=\"bottom(50,true)\" data-duration=\"700\" data-delay=\"950\" data-ease=\"easeOutQuad\"><a class=\"btn btn-primary\" href=\"#\">Browse all</a></div>\r\n        </div>\r\n\r\n    </div>\r\n</section><!--Hero Slider Close-->\r\n";
+Handlebars.partials['product-gallery'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"gallery-item\" data-groups=\""
+    + alias3(((helper = (helper = helpers.itemcategories || (depth0 != null ? depth0.itemcategories : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcategories","hash":{},"data":data}) : helper)))
+    + "\" data-src=\""
+    + alias3(((helper = (helper = helpers.itemimage || (depth0 != null ? depth0.itemimage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemimage","hash":{},"data":data}) : helper)))
+    + "\">\r\n    <a href=\""
+    + alias3(((helper = (helper = helpers.itemimage || (depth0 != null ? depth0.itemimage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemimage","hash":{},"data":data}) : helper)))
+    + "\">\r\n        <div class=\"overlay\"><span><i class=\"icon-expand\"></i></span></div>\r\n        <img src=\""
+    + alias3(((helper = (helper = helpers.itemimage || (depth0 != null ? depth0.itemimage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemimage","hash":{},"data":data}) : helper)))
+    + "\" alt=\""
+    + alias3(((helper = (helper = helpers.itemcodedesc || (depth0 != null ? depth0.itemcodedesc : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcodedesc","hash":{},"data":data}) : helper)))
+    + "\"/>\r\n    </a>\r\n</div>\r\n";
+},"useData":true});
+Handlebars.partials['product'] = template({"1":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "        <div class=\"price-label old-price\">$"
+    + this.escapeExpression(((helper = (helper = helpers.suggestedretailprice || (depth0 != null ? depth0.suggestedretailprice : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"suggestedretailprice","hash":{},"data":data}) : helper)))
+    + "</div>\r\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"tile\">\r\n    <div class=\"price-label\">$"
+    + alias3(((helper = (helper = helpers.standardunitprice || (depth0 != null ? depth0.standardunitprice : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"standardunitprice","hash":{},"data":data}) : helper)))
+    + "</div>\r\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.suggestedretailprice : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    <a href=\"/item/"
+    + alias3(((helper = (helper = helpers.itemcode || (depth0 != null ? depth0.itemcode : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcode","hash":{},"data":data}) : helper)))
+    + "\">\r\n        <img src=\""
+    + alias3(((helper = (helper = helpers.itemimage || (depth0 != null ? depth0.itemimage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemimage","hash":{},"data":data}) : helper)))
+    + "\" alt=\""
+    + alias3(((helper = (helper = helpers.itemcodedesc || (depth0 != null ? depth0.itemcodedesc : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcodedesc","hash":{},"data":data}) : helper)))
+    + "\"/>\r\n        <span class=\"tile-overlay\"></span>\r\n    </a>\r\n\r\n    <div class=\"footer\">\r\n        <a href=\"#\">"
+    + alias3(((helper = (helper = helpers.itemcode || (depth0 != null ? depth0.itemcode : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcode","hash":{},"data":data}) : helper)))
+    + "</a>\r\n        <button class=\"btn btn-primary\" data-addtocart=\""
+    + alias3(((helper = (helper = helpers.itemcode || (depth0 != null ? depth0.itemcode : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcode","hash":{},"data":data}) : helper)))
+    + "\">Add to Cart</button>\r\n    </div>\r\n</div>\r\n";
 },"useData":true});
 Handlebars.partials['sub'] = template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;

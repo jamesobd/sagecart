@@ -115,7 +115,7 @@
 <script src="/js/custom/partials.js"></script>
 <script src="/js/custom/templates.js"></script>
 
-<script src="/js/models/contact.js"></script>
+<script src="/js/models/user.js"></script>
 <script src="/js/models/category.js"></script>
 <script src="/js/models/product.js"></script>
 <script src="/js/collections/categories.js"></script>
@@ -124,7 +124,7 @@
 <script src="/js/views/cart-bar-view.js"></script>
 <script src="/js/views/nav-view.js"></script>
 <script src="/js/views/content-view.js"></script>
-<script src="/js/views/pages/default-page-view.js"></script>
+<script src="/js/views/pages/default-page.js"></script>
 <script src="/js/views/layouts/example-layout.js"></script>
 <script src="/js/views/pages/product-list-page.js"></script>
 <script src="/js/views/pages/cart-page-view.js"></script>

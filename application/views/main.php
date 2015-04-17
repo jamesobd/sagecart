@@ -30,6 +30,41 @@
 <!--Body-->
 <body>
 
+<!--Login Modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <h2>Login or <a href="register.html">Register</a></h2>
+                <p class="large">Use social accounts</p>
+                <div class="social-login">
+                    <a class="facebook" href="#"><i class="fa fa-facebook-square"></i></a>
+                    <a class="google" href="#"><i class="fa fa-google-plus-square"></i></a>
+                    <a class="twitter" href="#"><i class="fa fa-twitter-square"></i></a>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form class="login-form">
+                    <div class="form-group group">
+                        <label for="log-email">Email</label>
+                        <input type="email" class="form-control" name="log-email" id="log-email" placeholder="Enter your email" required>
+                        <a class="help-link" href="#">Forgot email?</a>
+                    </div>
+                    <div class="form-group group">
+                        <label for="log-password">Password</label>
+                        <input type="text" class="form-control" name="log-password" id="log-password" placeholder="Enter your password" required>
+                        <a class="help-link" href="#">Forgot password?</a>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="remember"> Remember me</label>
+                    </div>
+                    <input class="btn btn-black" type="submit" value="Login">
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!--Header-->
 <header data-offset-top="500" data-stuck="600">
@@ -164,8 +199,10 @@
         <div class="container">
             <!--Toolbar-->
             <div class="toolbar group">
-                <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i
-                        class="icon-profile"></i> <span><b>L</b>ogin</span></a>
+                <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal">
+                    <i class="icon-profile"></i> <span><b>L</b>ogin</span></a>
+                <a class="logout-btn btn-outlined-invert" href="/logout">
+                    <i class="icon-profile" style="display:none"></i> <span><b>L</b>ogout</span></a>
 
                 <a class="btn-outlined-invert" href="/wishlist"><i class="icon-heart"></i>
                     <span><b>W</b>ishlist</span></a>
@@ -341,7 +378,8 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-lg-7 col-md-7 col-sm-7">
-                    <p class="text-center">&copy; <?php echo date('Y') ?> Your Awesome Company. All Rights Reserved.<br>Designed by <a href="http://obdstudios.com/" target="_blank">Online By Design</a>
+                    <p class="text-center">&copy; <?php echo date('Y') ?> Your Awesome Company. All Rights Reserved.<br>Designed
+                        by <a href="http://obdstudios.com/" target="_blank">Online By Design</a>
                     </p>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5">
@@ -398,7 +436,7 @@
 <script src="/js/custom/templates.js"></script>
 
 <!-- Models -->
-<script src="/js/models/contact.js"></script>
+<script src="/js/models/user.js"></script>
 <script src="/js/models/category.js"></script>
 <script src="/js/models/product.js"></script>
 
@@ -408,7 +446,8 @@
 
 <!-- Views -->
 <script src="/js/views/layouts/main-layout.js"></script>
-<script src="/js/views/pages/default-page-view.js"></script>
+<script src="/js/views/pages/default-page.js"></script>
+<script src="/js/views/pages/home-page.js"></script>
 
 <!-- Routes -->
 <script src="/js/routes/main-route.js"></script>
