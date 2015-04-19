@@ -1,13 +1,16 @@
 App.Views.MainLayout = Backbone.View.extend({
     initialize: function (options) {
-        //this.listenTo(this.model, 'login', )
+        // When the user signs in or out we redirect to the home page.
+        this.listenTo(this.model, 'login', this.renderLogin);
+        this.listenTo(this.model, 'logout', this.renderLogout);
     },
     el: 'body',
 
     events: {
+        'submit form[action="#login"]': 'submitLogin',
+        'click a[href^="#logout"]': 'submitLogout',
         'click a[href^="/"]': 'navigateAnchor',
-        'submit form[action^="/"]': 'navigateForm',
-        'submit form.login-form': 'login'
+        'submit form[action^="/"]': 'navigateForm'
     },
 
 
@@ -22,11 +25,31 @@ App.Views.MainLayout = Backbone.View.extend({
 
 
     /**
-     * Adjust this layout when a user logs-in
+     * Submit the login form and make adjustments to the login form
      */
-    login: function (e) {
+    submitLogin: function (e) {
         e.preventDefault();
-        this.model.login($(e.currentTarget).serializeObject());
+        this.model.login($(e.currentTarget).serializeObject(), {
+            success: function () {
+                this.$(':input', e.currentTarget).prop("disabled", false);
+                this.$('button[type="submit"]', e.currentTarget).spin(false);
+                this.renderLogin();
+            }.bind(this),
+            error: function (e) {
+                var message = _.isObject(e.responseJSON.message) ? _.values(e.responseJSON.message).join('<br>') : e.responseJSON.message;
+                alert(message);
+            }
+        });
+        this.$(':input', e.currentTarget).prop("disabled", true);
+        this.$('button[type="submit"]', e.currentTarget).spin({color: '#000'});
+    },
+
+    /**
+     * Submit the logout anchor
+     */
+    submitLogout: function (e) {
+        e.preventDefault();
+        this.model.logout();
     },
 
     /**
@@ -34,7 +57,7 @@ App.Views.MainLayout = Backbone.View.extend({
      */
     navigateAnchor: function (e) {
         e.preventDefault();
-        app.navigate($(e.currentTarget).attr('href'), {trigger: true});
+        app.navigate(this.$(e.currentTarget).attr('href'), {trigger: true});
     },
 
     /**
@@ -42,7 +65,24 @@ App.Views.MainLayout = Backbone.View.extend({
      */
     navigateForm: function (e) {
         e.preventDefault();
-        app.navigate($(e.currentTarget).attr('action') + '?' + $(e.currentTarget).serialize(), {trigger: true});
-        this.$('form')[0].reset();
+        app.navigate(this.$(e.currentTarget).attr('action') + '?' + this.$(e.currentTarget).serialize(), {trigger: true});
+        this.$(e.currentTarget)[0].reset();
+    },
+
+    /**
+     * Render adjustments to this layout when the user logs-in
+     */
+    renderLogin: function () {
+        this.$('.logout-btn').show();
+        this.$('.login-btn').hide();
+        this.$('#loginModal').modal('hide');
+    },
+
+    /**
+     * Render adjustments to this layout when the user logs-out
+     */
+    renderLogout: function () {
+        this.$('.logout-btn').hide();
+        this.$('.login-btn').show();
     }
 });

@@ -14,19 +14,19 @@ App.Routes.MainRoute = Backbone.Router.extend({
         //this.content = new App.Views.ContentView();
         this.layout = new App.Views.MainLayout({model: this.user});
 
+        // When the user signs in or out we redirect to the home page.
+        this.listenTo(this.user, 'login logout', this.homePage);
+
         // Fetch initial load of data and save references to the XHR requests in case we need to know when they are done
-        this.userXHR = this.user.fetch();
+        this.userXHR = this.user.fetch({success: function() {
+            this.user.trigger('login');
+        }.bind(this)});
         //this.productsXHR = this.products.fetch({reset: true});
         //this.categoriesXHR = this.categories.fetch({reset: true});
-
-        $.when(this.userXHR).then(function () {
-            this.layout.$el.trigger('user:login');
-        }.bind(this));
     },
 
     routes: {
         '': 'homePage',
-        'logout': 'logoutPage',
         'product/:id': 'productPage',
         'category(/:id)': 'categoryPage',
         'cart': 'cartPage',
@@ -39,13 +39,6 @@ App.Routes.MainRoute = Backbone.Router.extend({
      */
     homePage: function () {
         $.when(this.userXHR).always(function () {
-            this.layout.switchPage(new App.Views.HomePage({model: this.user}).render());
-        }.bind(this));
-    },
-
-    logoutPage: function () {
-        $.when(this.userXHR).always(function () {
-            this.user.logout();
             this.layout.switchPage(new App.Views.HomePage({model: this.user}).render());
         }.bind(this));
     },

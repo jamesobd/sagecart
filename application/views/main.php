@@ -45,21 +45,21 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form class="login-form">
+                <form class="login-form" action="#login">
                     <div class="form-group group">
-                        <label for="log-email">Email</label>
-                        <input type="email" class="form-control" name="log-email" id="log-email" placeholder="Enter your email" required>
-                        <a class="help-link" href="#">Forgot email?</a>
+                        <label for="log-email">Username</label>
+                        <input type="text" class="form-control" name="username" id="log-email" placeholder="Enter your Username" required>
+                        <a class="help-link" href="#">Forgot username?</a>
                     </div>
                     <div class="form-group group">
                         <label for="log-password">Password</label>
-                        <input type="text" class="form-control" name="log-password" id="log-password" placeholder="Enter your password" required>
+                        <input type="text" class="form-control" name="password" id="log-password" placeholder="Enter your password" required>
                         <a class="help-link" href="#">Forgot password?</a>
                     </div>
                     <div class="checkbox">
                         <label><input type="checkbox" name="remember"> Remember me</label>
                     </div>
-                    <input class="btn btn-black" type="submit" value="Login">
+                    <button class="btn btn-black" type="submit" style="position: relative;">Login</button>
                 </form>
             </div>
         </div><!-- /.modal-content -->
@@ -201,8 +201,8 @@
             <div class="toolbar group">
                 <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal">
                     <i class="icon-profile"></i> <span><b>L</b>ogin</span></a>
-                <a class="logout-btn btn-outlined-invert" href="/logout">
-                    <i class="icon-profile" style="display:none"></i> <span><b>L</b>ogout</span></a>
+                <a class="logout-btn btn-outlined-invert" href="#logout" style="display: none;">
+                    <i class="icon-profile"></i> <span><b>L</b>ogout</span></a>
 
                 <a class="btn-outlined-invert" href="/wishlist"><i class="icon-heart"></i>
                     <span><b>W</b>ishlist</span></a>
@@ -416,14 +416,16 @@
 <script src="/js/vendor/owl.carousel.min.js"></script>
 <script src="/js/vendor/masterslider.min.js"></script>
 <script src="/js/vendor/jquery.nouislider.min.js"></script>
-<script src="/js/scripts.js"></script>
-
-<script src="/js/custom/jquery.serializeObject.js"></script>
-<script src="/js/custom/jquery.postJSON.js"></script>
 
 <script src="/js/vendor/lodash.min.js"></script>
 <script src="/js/vendor/backbone-min.js"></script>
 <script src="/js/vendor/handlebars.runtime-v3.0.0.js"></script>
+<script src="/js/vendor/spin.min.js"></script>
+<script src="/js/vendor/jquery.spin.js"></script>
+
+<script src="/js/custom/jquery.serializeObject.js"></script>
+<script src="/js/custom/jquery.postJSON.js"></script>
+<script src="/js/scripts.js"></script>
 
 <script>
     var App = {

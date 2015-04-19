@@ -25,7 +25,7 @@
                 <span class="divider">|</span>
                 <span id="name">-</span>
                 <span class="divider">|</span>
-                <span id="logout"><a href="/logout">Logout</a></span>
+                <span id="logout"><a href="#logout">Logout</a></span>
 
             </div>
             <div id="search">

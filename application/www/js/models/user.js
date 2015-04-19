@@ -3,21 +3,32 @@ App.Models.User = Backbone.Model.extend({
 
     id: '@me',
 
+    /**
+     * Custom login method
+     *
+     * @param formData
+     * @param options
+     */
     login: function (formData, options) {
-        app.userXHR = $.postJSON('/api/users/login', JSON.stringify(formData), {
+        var loginOptions = _.extend(options ? _.clone(options) : {}, {
             success: function (data) {
                 this.set(data);
-                console.log('signed in', data);
-            }.bind(this),
-            error: function (e) {
-                var message = _.isObject(e.responseJSON.message) ? _.values(e.responseJSON.message).join('<br>') : e.responseJSON.message;
-                console.log('problem logging in', message);
+                this.trigger('login');
+                if (options.success) options.success(data);
             }.bind(this)
         });
+        app.userXHR = $.postJSON('/api/users/login', JSON.stringify(formData), loginOptions);
     },
 
+    /**
+     * Custom logout method
+     *
+     * @param options
+     */
     logout: function (options) {
+        options = options ? _.clone(options) : {};
         $.get('/api/users/logout', options);
         this.clear();
+        this.trigger('logout');
     }
 });
