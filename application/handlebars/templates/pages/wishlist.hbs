@@ -4,6 +4,13 @@
     <li>Wishlist</li>
 </ol><!--Breadcrumbs Close-->
 
+<!--Shopping Cart Message-->
+<section class="cart-message">
+    <i class="fa fa-check-square"></i>
+    <p class="p-style3">"Nikon" was successfully added to your cart.</p>
+    <a class="btn-outlined-invert btn-black btn-sm" href="shopping-cart">View cart</a>
+</section><!--Shopping Cart Message Close-->
+
 <!--Wishlist-->
 <section class="wishlist">
     <div class="container">
@@ -23,7 +30,7 @@
                         <td class="thumb"><a href="shop-single-item-v1"><img src="img/catalog/shopping-cart-thumb.jpg" alt="Lorem ipsum"/></a></td>
                         <td class="name"><a href="shop-single-item-v1">Wristlet</a></td>
                         <td class="price">715,00 $</td>
-                        <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="icon-shopping-cart"></i>Add to cart</a></td>
+                        <td class="button"><a class="btn btn-primary btn-sm addItemToCart" href="#"><i class="icon-shopping-cart"></i>Add to cart</a></td>
                         <td class="delete"><i class="icon-delete"></i></td>
                     </tr>
                     <!--Item-->
@@ -31,7 +38,7 @@
                         <td class="thumb"><a href="shop-single-item-v1"><img src="img/catalog/shopping-cart-thumb.jpg" alt="Lorem ipsum"/></a></td>
                         <td class="name"><a href="shop-single-item-v1">Wristlet</a></td>
                         <td class="price">715,00 $</td>
-                        <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="icon-shopping-cart"></i>Add to cart</a></td>
+                        <td class="button"><a class="btn btn-primary btn-sm addItemToCart" href="#"><i class="icon-shopping-cart"></i>Add to cart</a></td>
                         <td class="delete"><i class="icon-delete"></i></td>
                     </tr>
                     <!--Item-->
@@ -47,7 +54,7 @@
                         <td class="thumb"><a href="shop-single-item-v1"><img src="img/catalog/shopping-cart-thumb.jpg" alt="Lorem ipsum"/></a></td>
                         <td class="name"><a href="shop-single-item-v1">Wristlet</a></td>
                         <td class="price">715,00 $</td>
-                        <td class="button"><a class="btn btn-primary btn-sm" href="#"><i class="icon-shopping-cart"></i>Add to cart</a></td>
+                        <td class="button"><a class="btn btn-primary btn-sm addItemToCart" href="#"><i class="icon-shopping-cart"></i>Add to cart</a></td>
                         <td class="delete"><i class="icon-delete"></i></td>
                     </tr>
                     <!--Item-->
@@ -74,7 +81,7 @@
                 <!--Top items-->
                 <h3 class="space-top">Top items</h3>
                 <div class="top-item">
-                    <div class="price-label">715,00 $</div>
+                    <div class="price">715,00 $</div>
                     <a href="#"><img src="img/offers/special-offer.png" alt="Special Offer"/></a>
                     <div class="footer"><a href="#">The Buccaneer</a></div>
                 </div>
@@ -99,15 +106,15 @@
                     <div class="badges">
                         <span class="sale">Sale</span>
                     </div>
-                    <div class="price-label">715,00 $</div>
+                    <div class="price price-label">715,00 $</div>
                     <a href="#">
                         <img src="img/catalog/1.png" alt="1"/>
                         <span class="tile-overlay"></span>
                     </a>
                     <div class="footer">
-                        <a href="#">The Buccaneer</a>
+                        <a href="#" class="name">The Buccaneer</a>
                         <span>by Pirate3d</span>
-                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-primary addItemToCart">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -117,16 +124,16 @@
                     <div class="badges">
                         <span class="out">Out</span>
                     </div>
-                    <div class="price-label">715,00 $</div>
+                    <div class="price price-label">715,00 $</div>
                     <div class="price-label old-price">920,00 $</div>
                     <a href="#">
                         <img src="img/catalog/1.png" alt="1"/>
                         <span class="tile-overlay"></span>
                     </a>
                     <div class="footer">
-                        <a href="#">The Buccaneer</a>
+                        <a href="#" class="name">The Buccaneer</a>
                         <span>by Pirate3d</span>
-                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-primary addItemToCart">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -136,30 +143,30 @@
                     <div class="badges">
                         <span class="best-seller">Best Seller</span>
                     </div>
-                    <div class="price-label">715,00 $</div>
+                    <div class="price price-label">715,00 $</div>
                     <a href="#">
                         <img src="img/catalog/1.png" alt="1"/>
                         <span class="tile-overlay"></span>
                     </a>
                     <div class="footer">
-                        <a href="#">The Buccaneer</a>
+                        <a href="#" class="name">The Buccaneer</a>
                         <span>by Pirate3d</span>
-                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-primary addItemToCart">Add to Cart</button>
                     </div>
                 </div>
             </div>
             <!--Tile-->
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="tile">
-                    <div class="price-label">715,00 $</div>
+                    <div class="price price-label">715,00 $</div>
                     <a href="#">
                         <img src="img/catalog/1.png" alt="1"/>
                         <span class="tile-overlay"></span>
                     </a>
                     <div class="footer">
-                        <a href="#">The Buccaneer</a>
+                        <a href="#" class="name">The Buccaneer</a>
                         <span>by Pirate3d</span>
-                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-primary addItemToCart">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -182,3 +189,53 @@
         </div>
     </div>
 </section><!--Brands Carousel Close-->
+
+<script>
+    $('.brand-carousel .inner').owlCarousel({
+        // Define custom and unlimited items depending from the width
+        // If this option is set, itemsDeskop, itemsDesktopSmall, itemsTablet, itemsMobile etc. are disabled
+        // For better preview, order the arrays by screen size, but it's not mandatory
+        // Don't forget to include the lowest available screen size, otherwise it will take the default one for screens lower than lowest available.
+        // In the example there is dimension with 0 with which cover screens between 0 and 450px
+        itemsCustom: [
+            [0, 1],
+            [340, 2],
+            [580, 3],
+            [991, 4],
+            [1200, 5]
+        ],
+        navigation: true,
+        theme: "",
+        navigationText: ["", ""]
+    });
+
+    $('.addItemToCart').click(function(){
+        $('.cart-message').removeClass('visible');
+        var $itemName = $(this).parent().parent().find('.name').text();
+        var $itemPrice = $(this).parent().parent().find('.price').text();
+        var $itemQnty = 1;
+        var $cartTotalItems = parseInt($('.cart-btn a span').text()) +1;
+        $('.cart-message').find('p').text('"' + $itemName + '"' + '  ' + 'was successfully added to your cart.');
+        $('.cart-dropdown table').append(
+                '<tr class="item"><td><div class="delete"></div><a href="#">' + $itemName +
+                '<td><input type="text" value="' + $itemQnty +
+                '"></td><td class="price">' + $itemPrice + '</td>'
+        );
+        $('.cart-btn a span').text($cartTotalItems);
+        $('.cart-message').addClass('visible');
+    });
+
+    /*Wishlist Deleting Items
+ *******************************************/
+    $(document).on('click', '.wishlist .delete i', function(){
+        var $target = $(this).parent().parent();
+        $target.hide(300, function(){
+            $.when($target.remove()).then( function(){
+                if($positions.length === 1) {
+                    $('.wishlist .items-list').remove();
+                    $('.wishlist .title').text('Wishlist is empty!');
+                }
+            });
+        });
+    });
+</script>

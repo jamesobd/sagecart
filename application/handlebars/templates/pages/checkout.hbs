@@ -220,4 +220,13 @@
         theme: "",
         navigationText: ["", ""]
     });
+
+    /*Expandable Panels
+ *******************************************/
+    $('.panel-toggle').click(function(e){
+        $(this).toggleClass('active');
+        var $target = $(this).attr('href');
+        $($target).toggleClass('expanded');
+        e.preventDefault();
+    });
 </script>
