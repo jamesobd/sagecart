@@ -8,9 +8,9 @@ class Contacts_Model extends CI_Model {
     function __construct() {
         parent::__construct();
 
-        $this->load->library(array('mongo_db', 'request'));
+        $this->load->library(array('request'));
         // connect to the database
-        $this->collection = (new MongoClient())->gulf->contacts;
+        $this->collection = (new MongoClient($this->config->item('mongo_uri')))->sagecart->contacts;
     }
 
 

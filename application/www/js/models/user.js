@@ -1,5 +1,19 @@
 App.Models.User = Backbone.Model.extend({
-    urlRoot: function () {return 'api/users/' + this.id},
+    initialize: function () {
+        this.XHR = $.Deferred();
+        this.fetch({
+            success: function () {
+                this.XHR.resolve();
+                this.trigger('login');
+            }.bind(this),
+            error: function () {
+                this.XHR.reject();
+                this.trigger('logout');
+            }.bind(this)
+        });
+    },
+
+    urlRoot: function () {return '/api/users/' + this.id},
 
     id: '@me',
 
@@ -15,9 +29,13 @@ App.Models.User = Backbone.Model.extend({
                 this.set(data);
                 this.trigger('login');
                 if (options.success) options.success(data);
+            }.bind(this),
+            error: function(data) {
+                this.trigger('logout');
+                if (options.error) options.error(data);
             }.bind(this)
         });
-        app.userXHR = $.postJSON('/api/users/login', JSON.stringify(formData), loginOptions);
+        this.XHR = $.postJSON('/api/users/login', JSON.stringify(formData), loginOptions);
     },
 
     /**
@@ -27,8 +45,9 @@ App.Models.User = Backbone.Model.extend({
      */
     logout: function (options) {
         options = options ? _.clone(options) : {};
-        $.get('/api/users/logout', options);
+        this.XHR = $.Deferred().reject();
         this.clear();
+        $.get('/api/users/logout', options);
         this.trigger('logout');
     }
 });

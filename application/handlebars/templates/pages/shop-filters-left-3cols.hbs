@@ -1,6 +1,6 @@
 <!--Breadcrumbs-->
 <ol class="breadcrumb">
-    <li><a href="index">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li>Shop - filters left 3 cols</li>
 </ol><!--Breadcrumbs Close-->
 
@@ -8,6 +8,7 @@
 <section class="catalog-grid">
     <div class="container">
         <h2 class="with-sorting">Filters left 3 columns</h2>
+
         <div class="sorting">
             <a href="#">Sort by name</a>
             <a href="#">Sort by price</a>
@@ -21,21 +22,28 @@
                     <!--Price Section-->
                     <section class="filter-section">
                         <h3>Filter by price</h3>
+
                         <form method="get" name="price-filters">
-                            <span class="clear" id="clearPrice" >Clear price</span>
+                            <span class="clear" id="clearPrice">Clear price</span>
+
                             <div class="price-btns">
-                                <button class="btn btn-black btn-sm" value="below 50$">below 50$</button><br/>
-                                <button class="btn btn-black btn-sm disabled" value="50$-100$">from 50$ to 100$</button><br/>
-                                <button class="btn btn-black btn-sm" value="100$-300$">from 100$ to 300$</button><br/>
-                                <button class="btn btn-black btn-sm" value="300$-1000$">from 300$ to 1000$</button>
+                                <button class="btn btn-black btn-sm" value="below $50">below $50</button>
+                                <br/>
+                                <button class="btn btn-black btn-sm disabled" value="$50-$100">from $50 to $100</button>
+                                <br/>
+                                <button class="btn btn-black btn-sm" value="$100-$300">from $100 to $300</button>
+                                <br/>
+                                <button class="btn btn-black btn-sm" value="$300-$1000">from $300 to $1000</button>
                             </div>
                             <div class="price-slider">
                                 <div id="price-range"></div>
                                 <div class="values group">
                                     <!--data-min-val represent minimal price and data-max-val maximum price respectively in pricing slider range; value="" - default values-->
-                                    <input class="form-control" name="minVal" id="minVal" type="text" data-min-val="10" value="180">
+                                    <input class="form-control" name="minVal" id="minVal" type="text" data-min-val="10"
+                                           value="180">
                                     <span class="labels">$ - </span>
-                                    <input class="form-control" name="maxVal" id="maxVal" type="text" data-max-val="2500" value="1400">
+                                    <input class="form-control" name="maxVal" id="maxVal" type="text"
+                                           data-max-val="2500" value="1400">
                                     <span class="labels">$</span>
                                 </div>
                                 <input class="btn btn-primary btn-sm" type="submit" value="Filter">
@@ -57,7 +65,7 @@
                         <br>
                         <label>
                             <input type="checkbox" name="colors" value="green" id="color_2">
-                            Green  (34)</label>
+                            Green (34)</label>
                         <br>
                         <label>
                             <input type="checkbox" name="colors" value="blue" id="color_3">
@@ -123,156 +131,7 @@
 
             <!--Tiles-->
             <div class="col-lg-9 col-md-9 col-sm-8">
-                <div class="row">
-                    <!--Tile-->
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="tile">
-                            <div class="badges">
-                                <span class="sale">Sale</span>
-                            </div>
-                            <div class="price-label">715,00 $</div>
-                            <a href="#">
-                                <img src="img/catalog/1.png" alt="1"/>
-                                <span class="tile-overlay"></span>
-                            </a>
-                            <div class="footer">
-                                <a href="#">The Buccaneer</a>
-                                <span>by Pirate3d</span>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Tile-->
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="tile">
-                            <a href="#">
-                                <img src="img/catalog/1.png" alt="1"/>
-                                <span class="tile-overlay"></span>
-                            </a>
-                            <div class="badges">
-                                <span class="sale">Sale</span>
-                            </div>
-                            <div class="price-label">715,00 $</div>
-                            <div class="footer">
-                                <a href="#">The Buccaneer</a>
-                                <span>by Pirate3d</span>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Tile-->
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="tile">
-                            <div class="badges">
-                                <span class="best-seller">Best Seller</span>
-                            </div>
-                            <div class="price-label">715,00 $</div>
-                            <a href="#">
-                                <img src="img/catalog/1.png" alt="1"/>
-                                <span class="tile-overlay"></span>
-                            </a>
-                            <div class="footer">
-                                <a href="#">The Buccaneer</a>
-                                <span>by Pirate3d</span>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Tile-->
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="tile">
-                            <div class="price-label">715,00 $</div>
-                            <a href="#">
-                                <img src="img/catalog/1.png" alt="1"/>
-                                <span class="tile-overlay"></span>
-                            </a>
-                            <div class="footer">
-                                <a href="#">The Buccaneer</a>
-                                <span>by Pirate3d</span>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Tile-->
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="tile">
-                            <div class="price-label">715,00 $</div>
-                            <a href="#">
-                                <img src="img/catalog/1.png" alt="1"/>
-                                <span class="tile-overlay"></span>
-                            </a>
-                            <div class="footer">
-                                <a href="#">The Buccaneer</a>
-                                <span>by Pirate3d</span>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Tile-->
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="tile">
-                            <div class="price-label">715,00 $</div>
-                            <div class="price-label old-price">920,00 $</div>
-                            <a href="#">
-                                <img src="img/catalog/1.png" alt="1"/>
-                                <span class="tile-overlay"></span>
-                            </a>
-                            <div class="footer">
-                                <a href="#">The Buccaneer</a>
-                                <span>by Pirate3d</span>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Tile-->
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="tile">
-                            <div class="price-label">715,00 $</div>
-                            <div class="price-label old-price">920,00 $</div>
-                            <a href="#">
-                                <img src="img/catalog/1.png" alt="1"/>
-                                <span class="tile-overlay"></span>
-                            </a>
-                            <div class="footer">
-                                <a href="#">The Buccaneer</a>
-                                <span>by Pirate3d</span>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Tile-->
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="tile">
-                            <div class="price-label">715,00 $</div>
-                            <div class="price-label old-price">920,00 $</div>
-                            <a href="#">
-                                <img src="img/catalog/1.png" alt="1"/>
-                                <span class="tile-overlay"></span>
-                            </a>
-                            <div class="footer">
-                                <a href="#">The Buccaneer</a>
-                                <span>by Pirate3d</span>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Tile-->
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="tile">
-                            <div class="price-label">715,00 $</div>
-                            <div class="price-label old-price">920,00 $</div>
-                            <a href="#">
-                                <img src="img/catalog/1.png" alt="1"/>
-                                <span class="tile-overlay"></span>
-                            </a>
-                            <div class="footer">
-                                <a href="#">The Buccaneer</a>
-                                <span>by Pirate3d</span>
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="row" data-view="product-grid-list" data-grid-size="col-lg-4 col-md-6 col-sm-12"></div>
                 <!--Pagination-->
                 <ul class="pagination">
                     <li class="prev-page"><a class="icon-arrow-left" href="#"></a></li>
@@ -291,14 +150,15 @@
 <section class="brand-carousel">
     <div class="container">
         <h2>Brands in our shop</h2>
+
         <div class="inner">
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
         </div>
     </div>
 </section><!--Brands Carousel Close-->
@@ -322,6 +182,13 @@
         navigationText: ["", ""]
     });
 
+    /*Custom Style Checkboxes and Radios
+ *******************************************/
+    $('input').iCheck({
+        checkboxClass: 'icheckbox',
+        radioClass: 'iradio'
+    });
+
     /*Catalog Filters
  *******************************************/
     //Price Slider Range
@@ -329,13 +196,13 @@
     var $maxVal = parseInt($('#maxVal').attr('data-max-val'));
     var $startMin = parseInt($('#minVal').val());
     var $startMax = parseInt($('#maxVal').val());
-    if($('#price-range').length > 0){
+    if ($('#price-range').length > 0) {
         $('#price-range').noUiSlider({
             range: {
                 'min': $minVal,
                 'max': $maxVal
             },
-            start: [$startMin,$startMax],
+            start: [$startMin, $startMax],
             connect: true,
             serialization: {
                 lower: [
@@ -357,6 +224,4 @@
             }
         });
     }
-
-
 </script>

@@ -1,5 +1,5 @@
 App.Models.Product = Backbone.Model.extend({
-    idAttribute: 'ItemCode',
+    idAttribute: 'itemcode',
     initialize: function () {
         this.on('change:_Quantity', this.saveQuantity);
     },

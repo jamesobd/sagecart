@@ -1,7 +1,7 @@
 
 <!--Breadcrumbs-->
 <ol class="breadcrumb">
-    <li><a href="index">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li>Blog</li>
 </ol><!--Breadcrumbs Close-->
 
@@ -32,21 +32,21 @@
                 <h3>Latest posts</h3>
                 <div class="latest-posts">
                     <div class="post">
-                        <a href="blog-single">New awesome theme out there...</a>
+                        <a href="/blog-single">New awesome theme out there...</a>
                         <div class="meta">
                             <a href="#">Comments <span>(34)</span></a>
                             <span class="date">12.02.2014</span>
                         </div>
                     </div>
                     <div class="post">
-                        <a href="blog-single">Lorem ipsum dolor sit amet...</a>
+                        <a href="/blog-single">Lorem ipsum dolor sit amet...</a>
                         <div class="meta">
                             <a href="#">Comments <span>(22)</span></a>
                             <span class="date">12.02.2014</span>
                         </div>
                     </div>
                     <div class="post">
-                        <a href="blog-single">Anim pariatur cliche reprehenderit...</a>
+                        <a href="/blog-single">Anim pariatur cliche reprehenderit...</a>
                         <div class="meta">
                             <a href="#">Comments <span>(81)</span></a>
                             <span class="date">12.02.2014</span>
@@ -60,11 +60,11 @@
                 <h2 class="title">Blog posts</h2>
                 <!--Post-->
                 <div class="post">
-                    <h3 class="title"><a href="blog-single">New awesome theme from 8Guild team</a></h3>
-                    <img src="img/blog/blog_01.png" alt="Blog post"/>
+                    <h3 class="title"><a href="/blog-single">New awesome theme from 8Guild team</a></h3>
+                    <img src="/img/blog/blog_01.png" alt="Blog post"/>
                     <p class="p-style3">Limo is the product which was born thanks to the involvement not only of the UI experts but also great marketers who have tremendous experience in outstanding implementations of e-commerce projects from different domains....</p>
                     <footer>
-                        <a class="btn btn-primary" href="blog-single">Read more</a>
+                        <a class="btn btn-primary" href="/blog-single">Read more</a>
                         <div class="share">
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-facebook-square"></i></a>
@@ -81,11 +81,11 @@
 
                 <!--Post-->
                 <div class="post">
-                    <h3 class="title"><a href="blog-single">Beautiful and clickable post title</a></h3>
-                    <img src="img/blog/blog_01.png" alt="Blog post"/>
+                    <h3 class="title"><a href="/blog-single">Beautiful and clickable post title</a></h3>
+                    <img src="/img/blog/blog_01.png" alt="Blog post"/>
                     <p class="p-style3">Limo Theme is quite universal and covers a lot of use cases for either big e-commerce website or smaller ones. Due to 5 different landing pages you can easily guide a client whether directly to a specific product or to a category page. The Product Showcase Home page is a full featured landing page for effective product or service promotion...</p>
                     <footer>
-                        <a class="btn btn-primary" href="blog-single">Read more</a>
+                        <a class="btn btn-primary" href="/blog-single">Read more</a>
                         <div class="share">
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-facebook-square"></i></a>
@@ -109,14 +109,35 @@
     <div class="container">
         <h2>Brands in our shop</h2>
         <div class="inner">
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
         </div>
     </div>
 </section><!--Brands Carousel Close-->
 
+<script>
+
+    $('.brand-carousel .inner').owlCarousel({
+        // Define custom and unlimited items depending from the width
+        // If this option is set, itemsDeskop, itemsDesktopSmall, itemsTablet, itemsMobile etc. are disabled
+        // For better preview, order the arrays by screen size, but it's not mandatory
+        // Don't forget to include the lowest available screen size, otherwise it will take the default one for screens lower than lowest available.
+        // In the example there is dimension with 0 with which cover screens between 0 and 450px
+        itemsCustom: [
+            [0, 1],
+            [340, 2],
+            [580, 3],
+            [991, 4],
+            [1200, 5]
+        ],
+        navigation: true,
+        theme: "",
+        navigationText: ["", ""]
+    });
+
+</script>

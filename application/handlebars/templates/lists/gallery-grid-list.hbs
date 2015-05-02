@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Product gallery</h2>
+
+    <div class="filters">
+        <a class="active" href="#" data-group="all">All</a>
+        {{#each categories}}
+            <a href="#" data-group="{{this.itemcode}}">{{this.itemcode}}</a>
+        {{/each}}
+    </div>
+    <ul class="gallery-grid">
+        {{#each products}}
+            <!--Item-->
+            <li class="gallery-item" data-groups='["{{this.itemcode}}"]'
+                 data-src="{{#if itemimage}}{{itemimage}}{{else}}//placehold.it/732x566{{/if}}">
+                <a href="{{#if itemimage}}{{itemimage}}{{else}}//placehold.it/732x566{{/if}}">
+                    <div class="overlay"><span><i class="icon-expand"></i></span></div>
+                    <img src="{{#if itemimage}}{{itemimage}}{{else}}//placehold.it/732x566{{/if}}" alt="1"/>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</div>

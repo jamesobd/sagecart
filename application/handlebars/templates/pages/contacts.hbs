@@ -1,6 +1,6 @@
 <!--Breadcrumbs-->
 <ol class="breadcrumb">
-    <li><a href="index">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li>Contacts</li>
 </ol><!--Breadcrumbs Close-->
 
@@ -8,7 +8,7 @@
 
 <!--Google Map-->
 <section class="map container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11365119.183662498!2d26.671722792891288!3d45.93754926598604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1403521777633" width="800" height="400" style="border:0"></iframe>
+    <iframe src="//www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11365119.183662498!2d26.671722792891288!3d45.93754926598604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1403521777633" width="800" height="400" style="border:0"></iframe>
 </section><!--Google Map Close-->
 
 <!--Contacts-->
@@ -53,13 +53,36 @@
     <div class="container">
         <h2>Brands in our shop</h2>
         <div class="inner">
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
         </div>
     </div>
 </section><!--Brands Carousel Close-->
+
+
+<script>
+    $('.contact-form').validate();
+
+    $('.brand-carousel .inner').owlCarousel({
+        // Define custom and unlimited items depending from the width
+        // If this option is set, itemsDeskop, itemsDesktopSmall, itemsTablet, itemsMobile etc. are disabled
+        // For better preview, order the arrays by screen size, but it's not mandatory
+        // Don't forget to include the lowest available screen size, otherwise it will take the default one for screens lower than lowest available.
+        // In the example there is dimension with 0 with which cover screens between 0 and 450px
+        itemsCustom: [
+            [0, 1],
+            [340, 2],
+            [580, 3],
+            [991, 4],
+            [1200, 5]
+        ],
+        navigation: true,
+        theme: "",
+        navigationText: ["", ""]
+    });
+</script>

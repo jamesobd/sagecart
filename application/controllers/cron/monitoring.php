@@ -53,10 +53,10 @@ class Monitoring extends CI_Controller {
         log_message('error', json_encode($log, JSON_UNESCAPED_SLASHES));
 
         // Email people about the error
-        $to = "rnordin@erpdevelopers.net,tom@obdstudios.com,james@obdstudios.com,mas@xsysinc.com,jfleck@gulfpackaging.com";
+        $to = "rnordin@erpdevelopers.net,tom@obdstudios.com,james@obdstudios.com";
         $subject = 'MAS API heartbeat failure';
         $message = "An error has occurred.  This automated message is to inform you that the MAS API failed to respond multiple times.\n\n" . json_encode($log, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES);
-        $headers = 'From: Gulf Store System <noreply@gulfpackaging.com>';
+        $headers = 'From: SAGE Cart Demo System <noreply@obdstudios.com>';
         mail($to, $subject, $message, $headers);
     }
 

@@ -33,7 +33,9 @@ class Request {
         curl_setopt($this->curlSession, CURLOPT_URL, $url);
         curl_setopt($this->curlSession, CURLOPT_CONNECTTIMEOUT, $options['connecttimeout']);
         $this->setHeaders();
-        $response = json_decode(curl_exec($this->curlSession));
+
+        // This nested encode/decode is to convert numeric strings to numbers
+        $response = json_decode(json_encode(json_decode(curl_exec($this->curlSession)), JSON_NUMERIC_CHECK));
 
         // TODO: Use the log environment variable to determine what logs get saved
         curl_log($this->curlSession, $response);

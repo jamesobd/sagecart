@@ -1,4 +1,18 @@
 App.Collections.Products = Backbone.Collection.extend({
+    initialize: function (products, options) {
+        this.XHR = $.Deferred();
+        this.listenTo(options.user, 'login', function () {
+            this.fetch({
+                success: function () {
+                    this.XHR.resolve();
+                }.bind(this),
+                error: function () {
+                    this.XHR.reject();
+                }.bind(this), reset: true
+            })
+        }.bind(this));
+    },
+
     url: '/api/products',
 
     model: App.Models.Product,
@@ -51,18 +65,6 @@ App.Collections.Products = Backbone.Collection.extend({
     },
 
     /**
-     * Get all products that have a quantity > 0
-     * aka Cart
-     *
-     * @returns {Array.<T>|*}
-     */
-    getByQuantity: function (offset, limit) {
-        return _.paginate(this.filter(function (product) {
-            return product.get('_Quantity') > 0;
-        }), offset, limit);
-    },
-
-    /**
      * Search for products whose properties have str in it (space delimited)
      */
     search: function (str, offset, limit) {
@@ -79,24 +81,10 @@ App.Collections.Products = Backbone.Collection.extend({
         }), offset, limit);
     },
 
-    getPalletsInCart: function () {
-        return Number(this.reduce(function (sum, product) {
-            return sum + product.getPalletTotal();
-        }, 0));
-    },
-
     getSubtotal: function () {
         return Number(this.reduce(function (sum, product) {
             return sum + product.getTotal();
         }, 0));
-    },
-
-    getFreightAmt: function () {
-        return Number(this.masCartResults && this.masCartResults['FreightAmt'] ? this.masCartResults['FreightAmt'] : 0);
-    },
-
-    getSalesTaxAmt: function () {
-        return Number(this.masCartResults && this.masCartResults['SalesTaxAmt'] ? this.masCartResults['SalesTaxAmt'] : 0);
     },
 
     /**

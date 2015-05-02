@@ -1,6 +1,6 @@
 <!--Breadcrumbs-->
 <ol class="breadcrumb">
-    <li><a href="index">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li>Delivery</li>
 </ol><!--Breadcrumbs Close-->
 
@@ -207,13 +207,34 @@
     <div class="container">
         <h2>Brands in our shop</h2>
         <div class="inner">
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
-            <a class="item" href="#"><img src="img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
+            <a class="item" href="#"><img src="/img/brands/1.png" alt="1"/></a>
         </div>
     </div>
 </section><!--Brands Carousel Close-->
+
+
+<script>
+    $('.brand-carousel .inner').owlCarousel({
+        // Define custom and unlimited items depending from the width
+        // If this option is set, itemsDeskop, itemsDesktopSmall, itemsTablet, itemsMobile etc. are disabled
+        // For better preview, order the arrays by screen size, but it's not mandatory
+        // Don't forget to include the lowest available screen size, otherwise it will take the default one for screens lower than lowest available.
+        // In the example there is dimension with 0 with which cover screens between 0 and 450px
+        itemsCustom: [
+            [0, 1],
+            [340, 2],
+            [580, 3],
+            [991, 4],
+            [1200, 5]
+        ],
+        navigation: true,
+        theme: "",
+        navigationText: ["", ""]
+    });
+</script>

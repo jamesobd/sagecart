@@ -181,14 +181,14 @@ a:hover {
 .log-reg .registr-form {
   border-left-color: #c7b07b;
 }
-.about .hero-static .content .inner h1 span {
+.about-page.hero-static .content .inner h1 span {
   color: #c7b07b;
 }
-.about .team .member .mask {
+.about-page.team .member .mask {
   border-color: #03a9f4;
 }
 .cat-tiles a,
-.about .team .member h5,
+.about-page.team .member h5,
 .cont-info-widget ul li i,
 .cont-info-widget ol li i,
 .coming-soon h1,
@@ -505,7 +505,7 @@ a.panel-toggle {
   background-color: #03a9f4 !important;
 }
 .price-label,
-#lightGallery-outer,
+#lg-outer,
 .thumb_cont,
 body > footer {
   background-color: #03a9f4 !important;
@@ -663,6 +663,6 @@ footer.footer a:hover {
   color: #03a9f4;
   background-color: #fff;
 }
-.about .hero-static .content .inner h1 span {
+.about-page.hero-static .content .inner h1 span {
   color: #03a9f4;
 }

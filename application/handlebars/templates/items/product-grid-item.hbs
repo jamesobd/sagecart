@@ -1,0 +1,19 @@
+<div class="tile">
+    <div class="price-label">${{numberToFixed standardunitprice 2}}</div>
+    {{#if suggestedretailprice }}
+        <div class="price-label old-price">${{numberToFixed suggestedretailprice 2}}</div>
+    {{/if}}
+    <a href="/products/{{encodeURIComponent itemcode}}">
+        {{#if itemimage}}
+            <img src="{{itemimage}}" alt="{{itemcodeshortdesc}}"/>
+        {{else}}
+            <img src="//placehold.it/356x390" alt="No image available"/>
+        {{/if}}
+        <span class="tile-overlay"></span>
+    </a>
+
+    <div class="footer">
+        <a href="#">{{itemcode}}</a>
+        <button class="btn btn-primary" data-addtocart="{{itemcode}}">Add to Cart</button>
+    </div>
+</div>

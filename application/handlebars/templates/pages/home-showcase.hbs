@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-7">
-                <a class="btn btn-primary btn-block" href="#"><span>1845$</span>Buy it now</a>
+                <a class="btn btn-primary btn-block" href="#"><span>$1845</span>Buy it now</a>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
                 <a class="btn-outlined btn-default" href="#">Read more</a>
             </div>
             <div class="col-lg-7 col-md-7 col-sm-6">
-                <img class="center-block" src="img/info-blocks/1.jpg" alt="1"/>
+                <img class="center-block" src="/img/info-blocks/1.jpg" alt="1"/>
             </div>
         </div>
     </div>
@@ -95,7 +95,7 @@
             </div>
         </div>
     </div>
-    <img src="img/features/lens.jpg" alt="Messenger"/>
+    <img src="/img/features/lens.jpg" alt="Messenger"/>
 </section>
 <!--Features Tabs Close-->
 
@@ -206,64 +206,8 @@
 </section><!--Technical Specifications Close-->
 
 <!--Gallery Widget-->
-<section class="white-bg gallery-widget">
-    <div class="container">
-        <h2>Product gallery</h2>
-
-        <div class="filters">
-            <a class="active" href="#" data-group="all">All</a>
-            <a href="#" data-group="City bags">City bags</a>
-            <a href="#" data-group="Gloves">Gloves</a>
-            <a href="#" data-group="Belts">Belts</a>
-            <a href="#" data-group="video">Clutch</a>
-        </div>
-        <div class="gallery-grid">
-            <!--Item-->
-            <div class="gallery-item" data-groups='["City bags"]' data-src="img/gallery-widget/1.jpg">
-                <a href="img/gallery-widget/1.jpg">
-                    <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                    <img src="img/gallery-widget/1.jpg" alt="1"/>
-                </a>
-            </div>
-            <!--Item-->
-            <div class="gallery-item" data-groups='["City bags"]' data-src="img/gallery-widget/2.jpg">
-                <a href="img/gallery-widget/2.jpg">
-                    <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                    <img src="img/gallery-widget/2.jpg" alt="2"/>
-                </a>
-            </div>
-            <!--Item-->
-            <div class="gallery-item" data-groups='["video"]'
-                 data-src="http://www.youtube.com/watch?v=eKG08z85DtY?feature=player_embedded">
-                <a href="#">
-                    <div class="overlay"><span><i class="icon-music-play"></i></span></div>
-                    <img src="img/gallery-widget/5.jpg" alt="3"/>
-                </a>
-            </div>
-            <!--Item-->
-            <div class="gallery-item" data-groups='["Belts"]' data-src="img/gallery-widget/4.jpg">
-                <a href="img/gallery-widget/4.jpg">
-                    <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                    <img src="img/gallery-widget/4.jpg" alt="4"/>
-                </a>
-            </div>
-            <!--Item-->
-            <div class="gallery-item" data-groups='["Gloves"]' data-src="img/gallery-widget/5.jpg">
-                <a href="img/gallery-widget/5.jpg">
-                    <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                    <img src="img/gallery-widget/5.jpg" alt="5"/>
-                </a>
-            </div>
-            <!--Item-->
-            <div class="gallery-item" data-groups='["Gloves"]' data-src="img/gallery-widget/5.jpg">
-                <a href="img/gallery-widget/5.jpg">
-                    <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                    <img src="img/gallery-widget/5.jpg" alt="6"/>
-                </a>
-            </div>
-        </div>
-    </div>
-</section><!--Gallery Widget Close-->
+<section data-view="gallery-grid-list" class="white-bg"></section>
+<!--Gallery Widget Close-->
 
 <!--Testimonials Widget-->
 <section class="testmns-widget">
@@ -284,7 +228,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-4">
-                                    <img src="img/people/1.png" width="192" height="192" alt="Dexter Dirk"/>
+                                    <img src="/img/people/1.png" width="192" height="192" alt="Dexter Dirk"/>
                                 </div>
                                 <div class="col-lg-8 col-md-9 col-sm-8">
                                     <blockquote>
@@ -300,7 +244,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-4">
-                                    <img src="img/people/1.png" width="192" height="192" alt="Richard Roe"/>
+                                    <img src="/img/people/1.png" width="192" height="192" alt="Richard Roe"/>
                                 </div>
                                 <div class="col-lg-8 col-md-9 col-sm-8">
                                     <blockquote>
@@ -316,7 +260,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-4">
-                                    <img src="img/people/1.png" width="192" height="192" alt="Jonathan Doe"/>
+                                    <img src="/img/people/1.png" width="192" height="192" alt="Jonathan Doe"/>
                                 </div>
                                 <div class="col-lg-8 col-md-9 col-sm-8">
                                     <blockquote>
@@ -379,96 +323,6 @@
         $('.feature-tabs .tabs-pane' + $curTab).addClass('current');
     });
 
-    /*Gallery Filtering and Responsiveness Function
-*******************************************/
-    var gallery = (function ($) {
-        'use strict';
-
-        var $grid = $('.gallery-grid'),
-                $filterOptions = $('.filters'),
-                $sizer = $grid.find('.shuffle__sizer'),
-
-                init = function () {
-
-                    // None of these need to be executed synchronously
-                    setTimeout(function () {
-                        listen();
-                        setupFilters();
-                    }, 100);
-
-                    $grid.on('loading.shuffle done.shuffle shrink.shuffle shrunk.shuffle filter.shuffle filtered.shuffle sorted.shuffle layout.shuffle', function (evt, shuffle) {
-                        // Make sure the browser has a console
-                        if (window.console && window.console.log && typeof window.console.log === 'function') {
-                            console.log('Shuffle:', evt.type);
-                        }
-                    });
-
-                    // instantiate the plugin
-                    $grid.shuffle({
-                        itemSelector: '.gallery-item',
-                        sizer: $sizer
-                    });
-                },
-
-        // Set up button clicks
-                setupFilters = function () {
-                    var $btns = $filterOptions.children();
-                    $btns.on('click', function (e) {
-                        var $this = $(this),
-                                isActive = $this.hasClass('active'),
-                                group = $this.data('group');
-                        $('.filters .active').removeClass('active');
-                        $this.addClass('active');
-
-                        // Filter elements
-                        $grid.shuffle('shuffle', group);
-                        e.preventDefault();
-                    });
-
-                    $btns = null;
-                },
-
-                listen = function () {
-                    var debouncedLayout = $.throttle(300, function () {
-                        $grid.shuffle('update');
-                    });
-
-                    // Get all images inside shuffle
-                    $grid.find('img').each(function () {
-                        var proxyImage;
-
-                        // Image already loaded
-                        if (this.complete && this.naturalWidth !== undefined) {
-                            return;
-                        }
-
-                        // If none of the checks above matched, simulate loading on detached element.
-                        proxyImage = new Image();
-                        $(proxyImage).on('load', function () {
-                            $(this).off('load');
-                            debouncedLayout();
-                        });
-
-                        proxyImage.src = this.src;
-                    });
-
-                    // Because this method doesn't seem to be perfect.
-                    setTimeout(function () {
-                        debouncedLayout();
-                    }, 500);
-                };
-
-        return {
-            init: init
-        };
-    }(jQuery));
-
-    $(function () {
-        gallery.init();
-        $('.gallery-grid').lightGallery({
-            speed: 400
-        });
-    });
 
     /*Enable Touch / swipe events for carousel
  *******************************************/

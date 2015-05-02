@@ -4,7 +4,7 @@
 function curl_log($session, $response, $request_body = '')
 {
     $CI =& get_instance();
-    $logs = (new MongoClient())->gulf->logs;
+    $logs = (new MongoClient())->sagecart->logs;
     $log = array(
         'datetime' => date('Y-m-d H-i-s'),
         'type' => 'curl',

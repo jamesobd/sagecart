@@ -206,7 +206,7 @@ $(document).ready(function(e) {
     /*Custom Style Checkboxes and Radios
      *******************************************/
     $('input').iCheck({
-        checkboxClass: 'icheckbox',
+        checkboxClass: 'subscr-form',
         radioClass: 'iradio'
     });
 

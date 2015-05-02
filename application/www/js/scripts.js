@@ -1,7 +1,17 @@
+App = {
+    Models: {},
+    Views: {},
+    Collections: {},
+    Routes: {}
+};
+
+
 $(function () {
     var $searchBtn = $('.search-btn');
     var $searchForm = $('.search-form');
     var $closeSearch = $('.close-search');
+    var $subscrForm = $('.subscr-form');
+    var $nextField = $('.subscr-next');
     var $qcForm = $('.quick-contact');
     var $contForm = $('.contact-form');
     var $checkoutForm = $('#checkout-form');
@@ -49,6 +59,24 @@ $(function () {
         }
     });
 
+    /*Shopping Cart Dropdown
+     *******************************************/
+    //Deleting Items
+    $(document).on('click', '.cart-dropdown .delete', function(){
+        var $target = $(this).parent().parent();
+        var $positions = $('.cart-dropdown .item');
+        var $positionQty = parseInt($('.cart-btn a span').text());
+        $target.hide(300, function(){
+            $.when($target.remove()).then( function(){
+                $positionQty = $positionQty -1;
+                $('.cart-btn a span').text($positionQty);
+                if($positions.length === 1) {
+                    $('.cart-dropdown .body').html('<h3>Cart is empty!</h3>');
+                }
+            });
+        });
+    });
+
     /*Small Header slide down on scroll
      *******************************************/
     if ($(window).width() >= 500) {
@@ -78,6 +106,19 @@ $(function () {
     $submenuToggle.click(function (e) {
         $(this).toggleClass('open');
         $(this).parent().parent().find('.submenu').toggleClass('open');
+        e.preventDefault();
+    });
+
+    /*Subscription Form Widget
+     *******************************************/
+    $subscrForm.validate();
+    $nextField.click(function(e){
+        var $target = $(this).parent();
+        if($subscrForm.valid() === true){
+            $target.hide('drop', 300, function(){
+                $target.next().show('drop', 300);
+            });
+        }
         e.preventDefault();
     });
 

@@ -10,6 +10,10 @@ Handlebars.registerHelper("numberToFixed", function (number, places) {
     return Number(number).toFixed(places);
 });
 
+Handlebars.registerHelper("encodeURIComponent", function (str) {
+    return encodeURIComponent(str);
+});
+
 Handlebars.registerHelper("arrayContains", function (array, value) {
     return array.indexOf(value) != -1;
 })

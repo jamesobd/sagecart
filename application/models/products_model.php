@@ -8,9 +8,9 @@ class Products_Model extends CI_Model {
     function __construct() {
         parent::__construct();
 
-        $this->load->library(array('mongo_db', 'request'));
+        $this->load->library(array('request'));
         // connect to the database
-        $this->collection = (new MongoClient())->sagecart->users;
+        $this->collection = (new MongoClient($this->config->item('mongo_uri')))->sagecart->users;
     }
 
 
@@ -304,7 +304,7 @@ class Products_Model extends CI_Model {
             );
         }
 
-        if (!is_array($response->body->products)) {
+        if (!is_array($response->body)) {
             return (object)array(
                 'status' => 'error',
                 'code' => 404,
@@ -314,7 +314,7 @@ class Products_Model extends CI_Model {
         }
 
         // Save the products to the database
-        $this->collection->update(array("username" => $contact['username']), array('$set' => array('products' => $response->body->products)));
+        $this->collection->update(array("username" => $contact['username']), array('$set' => array('products' => $response->body)));
 
         return (object)array('status' => 'success', 'code' => 200);
     }

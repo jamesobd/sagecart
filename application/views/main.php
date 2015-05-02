@@ -36,7 +36,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-                <h2>Login or <a href="register.html">Register</a></h2>
+                <h2>Login or <a href="/register">Register</a></h2>
                 <p class="large">Use social accounts</p>
                 <div class="social-login">
                     <a class="facebook" href="#"><i class="fa fa-facebook-square"></i></a>
@@ -113,8 +113,8 @@
                         <li><a href="/shop-filters-right-2cols">Shop - Filters Right 2 Cols</a></li>
                         <li><a href="/shop-no-filters-4cols">Shop - No Filters 4 Cols</a></li>
                         <li><a href="/shop-no-filters-3cols">Shop - No Filters 3 Cols</a></li>
-                        <li><a href="/shop-single-item-v1">Shop - Single Item Vers 1</a></li>
-                        <li><a href="/shop-single-item-v2">Shop - Single Item Vers 2</a></li>
+                        <li><a href="/products/1001-HON-H252">Shop - Single Item Vers 1</a></li>
+                        <li><a href="/products/1001-HON-H252?ver=v2">Shop - Single Item Vers 2</a></li>
                         <li><a href="/shopping-cart">Shopping Cart</a></li>
                         <li><a href="/checkout">Checkout Page</a></li>
                         <li><a href="/wishlist">Wishlist</a></li>
@@ -133,7 +133,6 @@
                         <li><a href="/register">Login / Registration</a></li>
                         <li><a href="/about">About Us</a></li>
                         <li><a href="/contacts">Contacts</a></li>
-                        <li><a href="/404">404 Page</a></li>
                         <li><a href="/support">Support Page</a></li>
                         <li><a href="/delivery">Delivery</a></li>
                         <li><a href="/history">History Page</a></li>
@@ -148,7 +147,7 @@
 
         <div class="catalog-block">
             <div class="container">
-                <ul class="catalog">
+                <ul class="catalog" style="visibility: hidden;">
                     <li class="has-submenu"><a href="/shop-filters-left-3cols">Handbag<i
                                 class="fa fa-chevron-down"></i></a>
                         <ul class="submenu">
@@ -179,7 +178,7 @@
                                 </div>
                                 <div class="col-2">
                                     <img src="/img/offers/menu-drodown-offer.jpg" alt="Special Offer"/>
-                                    <a class="btn btn-black" href="#"><span>584$</span>Special offer</a>
+                                    <a class="btn btn-black" href="#"><span>$584</span>Special offer</a>
                                 </div>
                             </li>
                         </ul>
@@ -225,21 +224,21 @@
                                         <div class="delete"></div>
                                         <a href="#">Good Joo-Joo Surfb</a></td>
                                     <td><input type="text" value="1"></td>
-                                    <td class="price">89 005 $</td>
+                                    <td class="price">$89,005</td>
                                 </tr>
                                 <tr class="item">
                                     <td>
                                         <div class="delete"></div>
                                         <a href="#">Good Joo-Joo Item</a></td>
                                     <td><input type="text" value="2"></td>
-                                    <td class="price">4 300 $</td>
+                                    <td class="price">$4,300</td>
                                 </tr>
                                 <tr class="item">
                                     <td>
                                         <div class="delete"></div>
                                         <a href="#">Good Joo-Joo</a></td>
                                     <td><input type="text" value="5"></td>
-                                    <td class="price">84 $</td>
+                                    <td class="price">$84</td>
                                 </tr>
                             </table>
                         </div>
@@ -249,7 +248,7 @@
                                 <a class="btn btn-outlined-invert" href="/shopping-cart"><i
                                         class="icon-shopping-cart-content"></i>To cart</a>
                             </div>
-                            <div class="total">93 389 $</div>
+                            <div class="total">$93,389</div>
                         </div>
                     </div>
                     <!--Cart Dropdown Close-->
@@ -401,6 +400,7 @@
 <script>
     window.jQuery || document.write('<script src="/js/vendor/jquery-2.1.3.min.js"><\/script>');
 </script>
+<!--Theme Files-->
 <script src="/js/vendor/jquery-ui-1.10.4.custom.min.js"></script>
 <script src="/js/vendor/jquery.easing.min.js"></script>
 <script src="/js/vendor/bootstrap.min.js"></script>
@@ -416,24 +416,22 @@
 <script src="/js/vendor/masterslider.min.js"></script>
 <script src="/js/vendor/jquery.nouislider.min.js"></script>
 
+<!--Added libraries-->
 <script src="/js/vendor/lodash.min.js"></script>
 <script src="/js/vendor/backbone-min.js"></script>
 <script src="/js/vendor/handlebars.runtime-v3.0.0.js"></script>
 <script src="/js/vendor/spin.min.js"></script>
 <script src="/js/vendor/jquery.spin.js"></script>
+<script src="/js/vendor/URI.min.js"></script>
 
+<!--Custom theme scripts-->
+<script src="/js/custom/handlebars.helpers.js"></script>
 <script src="/js/custom/jquery.serializeObject.js"></script>
 <script src="/js/custom/jquery.postJSON.js"></script>
+<script src="/js/custom/jquery.uri.js"></script>
 <script src="/js/scripts.js"></script>
 
-<script>
-    var App = {
-        Models: {},
-        Views: {},
-        Collections: {},
-        Routes: {}
-    };
-</script>
+<!--Templates-->
 <script src="/js/custom/templates.js"></script>
 
 <!-- Models -->
@@ -447,8 +445,11 @@
 
 <!-- Views -->
 <script src="/js/views/layouts/main-layout.js"></script>
-<script src="/js/views/pages/default-page.js"></script>
-<script src="/js/views/pages/home-page.js"></script>
+<script src="/js/views/pages/auto-route-page.js"></script>
+<script src="/js/views/pages/product-page.js"></script>
+<script src="/js/views/lists/product-grid-list.js"></script>
+<script src="/js/views/lists/gallery-grid-list.js"></script>
+<script src="/js/views/items/product-grid-item.js"></script>
 
 <!-- Routes -->
 <script src="/js/routes/main-route.js"></script>
