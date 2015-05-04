@@ -20,7 +20,8 @@ $config['base_url']	= '';
  * Base url for API to connect to SAGE server
  */
 
-//$config['sage_api_url'] = 'http://50.77.179.242:2955/';
+$config['sage_api_url'] = 'http://demo.sageDataInterchange.com:2959/';
+$config['mongo_uri'] = 'localhost';
 
 // external IP for images
 $config['image_url'] = 'http://example.com/';
