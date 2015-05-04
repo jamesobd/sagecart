@@ -1,8 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 
-function curl_log($session, $response, $request_body = '')
-{
+function curl_log($session, $response, $request_body = '') {
     $CI =& get_instance();
     $logs = (new MongoClient($CI->config->item('mongo_uri')))->sagecart->logs;
     $log = array(

@@ -24,6 +24,7 @@ App.Views.MainLayout = Backbone.View.extend({
 
         this.$('#content > *').trigger('remove');
         this.$('#content').html(view.el);
+        $('body').scrollTop(0);
 
         // Load sub-views in the content area
         this.$('#content [data-view]').each(function (i, subView) {
