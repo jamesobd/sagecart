@@ -65,7 +65,7 @@ $(function () {
                     $qcForm.find(':input').prop("disabled", false);
                     $qcForm.find('button[type="submit"]').spin(false);
                     $.notify({
-                        message: data.message,
+                        message: data.responseJSON.message,
                         icon: 'fa fa-exclamation-triangle'
                     }, {
                         type: 'danger',
