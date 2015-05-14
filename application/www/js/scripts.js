@@ -43,11 +43,12 @@ $(function () {
         e.preventDefault();
         if ($qcForm.valid()) {
             $.postJSON('/contactus', JSON.stringify($qcForm.serializeObject()), {
-                success: function () {
+                success: function (data) {
                     $qcForm.removeClass('visible');
                     $qcForm.find(':input').prop("disabled", false);
                     $qcForm.find('button[type="submit"]').spin(false);
-                    $.notify({message: 'Message successfully sent'}, {
+                    $qcForm[0].reset();
+                    $.notify({message: data.message}, {
                         type: 'success',
                         placement: {
                             from: 'bottom',
@@ -59,12 +60,12 @@ $(function () {
                         }
                     });
                 },
-                error: function () {
+                error: function (data) {
                     $qcForm.removeClass('visible');
                     $qcForm.find(':input').prop("disabled", false);
                     $qcForm.find('button[type="submit"]').spin(false);
                     $.notify({
-                        message: 'Error: Unable to send message.  Please try again.',
+                        message: data.message,
                         icon: 'fa fa-exclamation-triangle'
                     }, {
                         type: 'danger',
@@ -81,7 +82,6 @@ $(function () {
             });
             $qcForm.find(':input').prop("disabled", true);
             $qcForm.find('button[type="submit"]').spin({color: '#000', lines: 8, radius: 5});
-            $qcForm[0].reset();
         }
     });
 
