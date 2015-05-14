@@ -44,18 +44,11 @@ class Index extends CI_Controller {
             $this->response->send(array('status' => 'error', 'message' => $this->form_validation->error_array()), 400);
         }
 
-        $to = 'james+test@obdstudios.com';
-        $subject = 'Test Message';
-        $message = 'Hello, World!';
-        $headers = "From: noreply@sagecart.org\r\n"; // Or sendmail_username@hostname by default
-        mail($to, $subject, $message, $headers);
-
-
         // Send the email
         $to = "james+test@obdstudios.com";
         $subject = 'SAGE Cart Demo - Contact Submission';
-        $message = 'From: ' . $this->input->post('name') . '<' . $this->input->post('email') . '>' . PHP_EOL . PHP_EOL . $this->input->post('message');
-        $headers = 'From: noreply@sagecart.org' . "\r\n" . 'Reply-To: ' . $this->input->post('name') . '<' . $this->input->post('email') . ">\r\n";
+        $message = $this->input->post('message');
+        $headers = 'From: ' . $this->input->post('name') . '<' . $this->input->post('email') . ">\r\n";
         $success = mail($to, $subject, $message, $headers);
         if (!$success) {
             $this->response->send(array('status' => 'error', 'message' => 'Unable to send message.  Please try again.'), 400);
