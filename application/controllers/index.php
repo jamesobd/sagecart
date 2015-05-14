@@ -44,6 +44,13 @@ class Index extends CI_Controller {
             $this->response->send(array('status' => 'error', 'message' => $this->form_validation->error_array()), 400);
         }
 
+        $to = 'james+test@obdstudios.com';
+        $subject = 'Test Message';
+        $message = 'Hello, World!';
+        $headers = "From: example@example.com\r\n"; // Or sendmail_username@hostname by default
+        mail($to, $subject, $message, $headers);
+
+
         // Send the email
         $to = "james+test@obdstudios.com";
         $subject = 'SAGE Cart Demo - Contact Submission';
