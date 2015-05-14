@@ -47,7 +47,7 @@ class Index extends CI_Controller {
         // Send the email
         $to = "james+test@obdstudios.com";
         $subject = 'SAGE Cart Demo - Contact Submission';
-        $message = $this->input->post('message');
+        $message = 'From: ' . $this->input->post('name') . '<' . $this->input->post('email') . '>' . PHP_EOL . PHP_EOL . $this->input->post('message');
         $headers = 'From: ' . $this->input->post('name') . '<' . $this->input->post('email') . '>';
         mail($to, $subject, $message, $headers);
         $this->response->send();
