@@ -10,6 +10,7 @@
     <ul class="gallery-grid">
         {{#each products}}
             <!--Item-->
+            <!--TODO: have the itemcode handle numbers vs strings-->
             <li class="gallery-item" data-groups='["{{this.itemcode}}"]'
                  data-src="{{#if itemimage}}{{itemimage}}{{else}}//placehold.it/732x566{{/if}}">
                 <a href="{{#if itemimage}}{{itemimage}}{{else}}//placehold.it/732x566{{/if}}">

@@ -13,6 +13,8 @@ class _Resource_ extends CI_Controller {
 
         $this->load->library('json_api_response');
         $this->load->model('_resource__model');
+
+        $_POST = json_decode(file_get_contents('php://input'), TRUE);
     }
 
 

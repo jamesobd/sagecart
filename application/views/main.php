@@ -15,6 +15,7 @@
     <!--Master Slider Styles-->
     <link href="/masterslider/style/masterslider.css" rel="stylesheet" media="screen">
     <!--Styles-->
+    <link href="/css/animate.css" rel="stylesheet" media="screen">
     <link href="/css/limo-theme.css" rel="stylesheet" media="screen">
     <link href="/css/colors/color-default.css" rel="stylesheet" media="screen">
 
@@ -35,9 +36,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i>
+                </button>
                 <h2>Login or <a href="/register">Register</a></h2>
+
                 <p class="large">Use social accounts</p>
+
                 <div class="social-login">
                     <a class="facebook" href="#"><i class="fa fa-facebook-square"></i></a>
                     <a class="google" href="#"><i class="fa fa-google-plus-square"></i></a>
@@ -48,12 +52,14 @@
                 <form class="login-form" action="#login">
                     <div class="form-group group">
                         <label for="log-email">Username</label>
-                        <input type="text" class="form-control" name="username" id="log-email" placeholder="Enter your Username" required>
+                        <input type="text" class="form-control" name="username" id="log-email"
+                               placeholder="Enter your Username" required>
                         <a class="help-link" href="#">Forgot username?</a>
                     </div>
                     <div class="form-group group">
                         <label for="log-password">Password</label>
-                        <input type="text" class="form-control" name="password" id="log-password" placeholder="Enter your password" required>
+                        <input type="text" class="form-control" name="password" id="log-password"
+                               placeholder="Enter your password" required>
                         <a class="help-link" href="#">Forgot password?</a>
                     </div>
                     <div class="checkbox">
@@ -62,9 +68,12 @@
                     <button class="btn btn-black" type="submit" style="position: relative;">Login</button>
                 </form>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 <!--Header-->
 <header data-offset-top="500" data-stuck="600">
@@ -264,34 +273,36 @@
 
 <!--Page Content-->
 <div id="content" class="page-content">
-<div style="height: 400px"></div>
+    <div style="height: 400px"></div>
 </div>
 <!--Page Content Close-->
 
 <!--Sticky Buttons-->
 <div class="sticky-btns">
-    <form class="quick-contact ajax-form" method="post" name="quick-contact">
+    <form class="quick-contact" method="post" name="quick-contact" action="#contactus">
         <h3>Contact us</h3>
 
-        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
+        <p class="text-muted">Send us a question or request more info on how to integrate eCommerce with SAGE 100.</p>
 
         <div class="form-group">
             <label for="qc-name">Full name</label>
-            <input class="form-control input-sm" type="text" name="name" id="qc-name" placeholder="Enter full name">
+            <input class="form-control input-sm" type="text" name="name" id="qc-name" placeholder="Enter full name"
+                   required>
         </div>
         <div class="form-group">
             <label for="qc-email">Email</label>
-            <input class="form-control input-sm" type="email" name="email" id="qc-email" placeholder="Enter email">
+            <input class="form-control input-sm" type="email" name="email" id="qc-email" placeholder="Enter email"
+                   required>
         </div>
         <div class="form-group">
             <label for="qc-message">Your message</label>
             <textarea class="form-control input-sm" name="message" id="qc-message"
-                      placeholder="Enter your message"></textarea>
+                      placeholder="Enter your message" required></textarea>
         </div>
         <!-- Validation Response -->
         <div class="response-holder"></div>
         <!-- Response End -->
-        <input class="btn btn-black btn-sm btn-block" type="submit" value="Send">
+        <button class="btn btn-black btn-sm btn-block" type="submit" style="position: relative;">Send</button>
     </form>
     <span id="qcf-btn"><i class="fa fa-envelope"></i></span>
     <span id="scrollTop-btn"><i class="fa fa-chevron-up"></i></span>
@@ -364,20 +375,28 @@
             <div class="contacts col-lg-3 col-md-3 col-sm-3">
                 <h2>Contacts</h2>
 
+                <h5>Online By Design</h5>
+
                 <p class="p-style3">
-                    4120 Lenox Avenue, New York, NY,<br/>
-                    10035 76 Saint Nicholas Avenue<br/>
-                    <a href="mailto:mail@Limo.com">mail@Limo.com</a><br/>
-                    +48 543765234<br/>
-                    +48 555 234 54 34<br/>
+                    Web: <a href="http://obdstudios.com">http://obdstudios.com</a><br/>
+                    Phone: (208) 779-0123<br/>
+                </p>
+
+                <h5>Sage Data Exchange</h5>
+
+                <p class="p-style3">
+                    Web: <a href="http://sagedataexchange.com/">http://sagedataexchange.com/</a><br/>
+                    Phone: (208) 779-0123<br/>
                 </p>
             </div>
         </div>
         <div class="copyright">
             <div class="row">
                 <div class="col-lg-7 col-md-7 col-sm-7">
-                    <p class="text-center">&copy; <?php echo date('Y') ?> Your Awesome Company. All Rights Reserved.<br>Designed
-                        by <a href="http://obdstudios.com/" target="_blank">Online By Design</a>
+                    <p class="text-center">&copy; <?php echo date('Y') ?> Your Awesome Company. All Rights Reserved.<br>
+                        Design implemented by <a href="http://obdstudios.com/" target="_blank">Online By Design</a> <span
+                            style="margin:0 10px">-</span>
+                        SAGE connection by <a href="http://sagedataexchange.com//" target="_blank">Sage Data Interchange</a>
                     </p>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5">
@@ -423,6 +442,7 @@
 <script src="/js/vendor/spin.min.js"></script>
 <script src="/js/vendor/jquery.spin.js"></script>
 <script src="/js/vendor/URI.min.js"></script>
+<script src="/js/vendor/bootstrap-notify.min.js"></script>
 
 <!--Custom theme scripts-->
 <script src="/js/custom/handlebars.helpers.js"></script>
@@ -450,6 +470,7 @@
 <script src="/js/views/lists/product-grid-list.js"></script>
 <script src="/js/views/lists/gallery-grid-list.js"></script>
 <script src="/js/views/items/product-grid-item.js"></script>
+<script src="/js/views/pagination-view.js"></script>
 
 <!-- Routes -->
 <script src="/js/routes/main-route.js"></script>

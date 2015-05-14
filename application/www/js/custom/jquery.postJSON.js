@@ -1,5 +1,5 @@
 $.postJSON = function (url, data, options) {
-    options = _.defaults(options, {
+    options = _.defaults(_.isUndefined(options) ? {} : options, {
         method: 'POST',
         data: data,
         cache: false,

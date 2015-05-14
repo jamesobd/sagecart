@@ -1,4 +1,9 @@
 App.Routes.MainRoute = Backbone.Router.extend({
+    defaults: {
+        limit: 6,
+        offset: 0,
+        paginationSize: 7
+    },
 
     // Initialize the app
     initialize: function (options) {

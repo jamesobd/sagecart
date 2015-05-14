@@ -13,6 +13,8 @@ class Categories extends CI_Controller {
 
         $this->load->library('response');
         $this->load->model('categories_model');
+
+        $_POST = json_decode(file_get_contents('php://input'), TRUE);
     }
 
 

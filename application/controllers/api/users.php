@@ -66,7 +66,6 @@ class Users extends CI_Controller {
     public function login() {
 
         // Validate data
-        $_POST = json_decode(file_get_contents('php://input'), TRUE);
         $this->form_validation->set_rules('username', 'username', 'required'); // TODO: add valid_email once we start using emails
         $this->form_validation->set_rules('password', 'password', 'required');
 

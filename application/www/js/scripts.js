@@ -39,10 +39,56 @@ $(function () {
     /*Quick Contact Form Validation
      *******************************************/
     $qcForm.validate();
+    $qcForm.on('submit', function (e) {
+        e.preventDefault();
+        if ($qcForm.valid()) {
+            $.postJSON('/contactus', JSON.stringify($qcForm.serializeObject()), {
+                success: function () {
+                    $qcForm.removeClass('visible');
+                    $qcForm.find(':input').prop("disabled", false);
+                    $qcForm.find('button[type="submit"]').spin(false);
+                    $.notify({message: 'Message successfully sent'}, {
+                        type: 'success',
+                        placement: {
+                            from: 'bottom',
+                            align: 'right'
+                        },
+                        animate: {
+                            enter: 'animated fadeInUp',
+                            exit: 'animated fadeOutDown'
+                        }
+                    });
+                },
+                error: function () {
+                    $qcForm.removeClass('visible');
+                    $qcForm.find(':input').prop("disabled", false);
+                    $qcForm.find('button[type="submit"]').spin(false);
+                    $.notify({
+                        message: 'Error: Unable to send message.  Please try again.',
+                        icon: 'fa fa-exclamation-triangle'
+                    }, {
+                        type: 'danger',
+                        placement: {
+                            from: 'bottom',
+                            align: 'right'
+                        },
+                        animate: {
+                            enter: 'animated fadeInUp',
+                            exit: 'animated fadeOutDown'
+                        }
+                    });
+                }
+            });
+            $qcForm.find(':input').prop("disabled", true);
+            $qcForm.find('button[type="submit"]').spin({color: '#000', lines: 8, radius: 5});
+            $qcForm[0].reset();
+        }
+    });
 
     /*Contact Form Validation
      *******************************************/
     $contForm.validate();
+
 
     /*Checkout Form Validation
      *******************************************/
@@ -62,15 +108,15 @@ $(function () {
     /*Shopping Cart Dropdown
      *******************************************/
     //Deleting Items
-    $(document).on('click', '.cart-dropdown .delete', function(){
+    $(document).on('click', '.cart-dropdown .delete', function () {
         var $target = $(this).parent().parent();
         var $positions = $('.cart-dropdown .item');
         var $positionQty = parseInt($('.cart-btn a span').text());
-        $target.hide(300, function(){
-            $.when($target.remove()).then( function(){
-                $positionQty = $positionQty -1;
+        $target.hide(300, function () {
+            $.when($target.remove()).then(function () {
+                $positionQty = $positionQty - 1;
                 $('.cart-btn a span').text($positionQty);
-                if($positions.length === 1) {
+                if ($positions.length === 1) {
                     $('.cart-dropdown .body').html('<h3>Cart is empty!</h3>');
                 }
             });
@@ -112,10 +158,10 @@ $(function () {
     /*Subscription Form Widget
      *******************************************/
     $subscrForm.validate();
-    $nextField.click(function(e){
+    $nextField.click(function (e) {
         var $target = $(this).parent();
-        if($subscrForm.valid() === true){
-            $target.hide('drop', 300, function(){
+        if ($subscrForm.valid() === true) {
+            $target.hide('drop', 300, function () {
                 $target.next().show('drop', 300);
             });
         }

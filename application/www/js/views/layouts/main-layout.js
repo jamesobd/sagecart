@@ -28,10 +28,12 @@ App.Views.MainLayout = Backbone.View.extend({
 
         // Load sub-views in the content area
         this.$('#content [data-view]').each(function (i, subView) {
-            if (App.Views[$(subView).attr('data-view')]) {
-                new App.Views[$(subView).attr('data-view')]({
+            if (App.Views[$(subView).data('view')]) {
+                new App.Views[$(subView).data('view')]({
                     el: subView
                 }).render();
+            } else {
+                console.error('The sub-view does not exist', $(subView).data('view'));
             }
         });
     },

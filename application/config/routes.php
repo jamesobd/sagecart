@@ -64,6 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $route['api/(:any)'] = 'api/$1/getall'; // GETALL
 }
 
+// Routes
+$route['contactus'] = 'index/contactus'; // Home
 
 // Catch-all
 $route['(:any)'] = ''; // Home

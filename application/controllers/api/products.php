@@ -13,6 +13,8 @@ class Products extends CI_Controller {
 
         $this->load->library(array('form_validation', 'response'));
         $this->load->model('products_model');
+
+        $_POST = json_decode(file_get_contents('php://input'), TRUE);
     }
 
 
@@ -37,7 +39,6 @@ class Products extends CI_Controller {
         }
 
         // Validate data
-        $_POST = json_decode(file_get_contents('php://input'), TRUE);
         $this->form_validation->set_rules('ItemCode', 'Item Code', 'required');
         $this->form_validation->set_rules('CommentText', 'Comment Text', 'required');
 
@@ -87,7 +88,6 @@ class Products extends CI_Controller {
         }
 
         // Validate data
-        $_POST = json_decode(file_get_contents('php://input'), TRUE);
         $_POST['product_id'] = $product_id;
         $this->form_validation->set_rules('product_id', 'Product ID', 'required|_existsInContact[_Products.ItemCode]');
         $this->form_validation->set_rules('_Quantity', 'quantity', 'is_natural');
