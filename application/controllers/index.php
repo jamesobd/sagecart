@@ -47,7 +47,7 @@ class Index extends CI_Controller {
         $to = 'james+test@obdstudios.com';
         $subject = 'Test Message';
         $message = 'Hello, World!';
-        $headers = "From: example@example.com\r\n"; // Or sendmail_username@hostname by default
+        $headers = "From: noreply@sagecart.org\r\n"; // Or sendmail_username@hostname by default
         mail($to, $subject, $message, $headers);
 
 
