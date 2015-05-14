@@ -48,7 +48,7 @@ class Index extends CI_Controller {
         $to = "james+test@obdstudios.com";
         $subject = 'SAGE Cart Demo - Contact Submission';
         $message = $this->input->post('message');
-        $headers = 'From: ' . $this->input->post('name') . '<' . $this->input->post('email') . ">\r\n";
+        $headers = 'From: SAGE Cart Demo - Contact Submission<noreply@sagecart.org>' . "\r\n" . 'Reply-To: ' . $this->input->post('name') . '<' . $this->input->post('email') . ">\r\n";
         $success = mail($to, $subject, $message, $headers);
         if (!$success) {
             $this->response->send(array('status' => 'error', 'message' => 'Unable to send message.  Please try again.'), 400);
