@@ -396,7 +396,7 @@
                     <p class="text-center">&copy; <?php echo date('Y') ?> Your Awesome Company. All Rights Reserved.<br>
                         Design implemented by <a href="http://obdstudios.com/" target="_blank">Online By Design</a> <span
                             style="margin:0 10px">-</span>
-                        SAGE connection by <a href="http://sagedataexchange.com//" target="_blank">Sage Data Interchange</a>
+                        SAGE connection by <a href="http://sagedataexchange.com//" target="_blank">Sage Data Exchange</a>
                     </p>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5">
