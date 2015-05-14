@@ -49,7 +49,11 @@ class Index extends CI_Controller {
         $subject = 'SAGE Cart Demo - Contact Submission';
         $message = 'From: ' . $this->input->post('name') . '<' . $this->input->post('email') . '>' . PHP_EOL . PHP_EOL . $this->input->post('message');
         $headers = 'From: ' . $this->input->post('name') . '<' . $this->input->post('email') . '>';
-        mail($to, $subject, $message, $headers);
+        $success = mail($to, $subject, $message, $headers);
+        if (!$success) {
+            $this->response->send(array('status' => 'error', 'message' => 'Unable to send the email'), 400);
+        }
+
         $this->response->send();
     }
 
