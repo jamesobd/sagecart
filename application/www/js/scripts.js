@@ -46,7 +46,7 @@ $(function () {
                 success: function (data) {
                     $qcForm.removeClass('visible');
                     $qcForm.find(':input').prop("disabled", false);
-                    $qcForm.find('button[type="submit"]').spin(false);
+                    $qcForm.find('button[type="submit"]').css('textIndent', '0').spin(false);
                     $qcForm[0].reset();
                     $.notify({message: data.message}, {
                         type: 'success',
@@ -63,7 +63,7 @@ $(function () {
                 error: function (data) {
                     $qcForm.removeClass('visible');
                     $qcForm.find(':input').prop("disabled", false);
-                    $qcForm.find('button[type="submit"]').spin(false);
+                    $qcForm.find('button[type="submit"]').css('textIndent', '0').spin(false);
                     $.notify({
                         message: data.responseJSON.message,
                         icon: 'fa fa-exclamation-triangle'
@@ -81,7 +81,7 @@ $(function () {
                 }
             });
             $qcForm.find(':input').prop("disabled", true);
-            $qcForm.find('button[type="submit"]').spin({color: '#000', lines: 8, radius: 5});
+            $qcForm.find('button[type="submit"]').css('textIndent', '-9999px').spin({color: '#000', lines: 8, radius: 5});
         }
     });
 

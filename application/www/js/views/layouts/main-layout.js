@@ -64,7 +64,7 @@ App.Views.MainLayout = Backbone.View.extend({
         this.model.login($(e.currentTarget).serializeObject(), {
             success: function () {
                 this.$(':input', e.currentTarget).prop("disabled", false);
-                this.$('button[type="submit"]', e.currentTarget).spin(false);
+                this.$('button[type="submit"]', e.currentTarget).css('textIndent', '0').spin(false);
                 this.renderLogin();
             }.bind(this),
             error: function (e) {
@@ -73,7 +73,7 @@ App.Views.MainLayout = Backbone.View.extend({
             }
         });
         this.$(':input', e.currentTarget).prop("disabled", true);
-        this.$('button[type="submit"]', e.currentTarget).spin({color: '#000'});
+        this.$('button[type="submit"]', e.currentTarget).css('textIndent', '-9999px').spin({color: '#000'});
     },
 
     /**
