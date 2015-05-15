@@ -282,7 +282,7 @@
     <form class="quick-contact" method="post" name="quick-contact" action="#contactus">
         <h3>Contact us</h3>
 
-        <p class="text-muted">Send us a question or request more info on how to integrate eCommerce with SAGE 100.</p>
+        <p class="text-muted">Send us questions or feedback!</p>
 
         <div class="form-group">
             <label for="qc-name">Full name</label>
@@ -304,7 +304,7 @@
         <!-- Response End -->
         <button class="btn btn-black btn-sm btn-block" type="submit" style="position: relative;">Send</button>
     </form>
-    <span id="qcf-btn"><i class="fa fa-envelope"></i></span>
+    <span id="qcf-btn" style="width: initial; padding: 7px;"><i class="fa fa-envelope"></i> <b style=" font-size: 12px; line-height: 31.4285717010498px">Contact Us</b></span>
     <span id="scrollTop-btn"><i class="fa fa-chevron-up"></i></span>
 </div>
 <!--Sticky Buttons Close-->
@@ -440,7 +440,7 @@
 <script src="/js/vendor/backbone-min.js"></script>
 <script src="/js/vendor/handlebars.runtime-v3.0.0.js"></script>
 <script src="/js/vendor/spin.min.js"></script>
-<script src="/js/vendor/jquery.spin.js"></script>
+<script src="/js/custom/jquery.spin.js"></script>
 <script src="/js/vendor/URI.min.js"></script>
 <script src="/js/vendor/bootstrap-notify.min.js"></script>
 
