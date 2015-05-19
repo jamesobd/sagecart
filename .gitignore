@@ -8,3 +8,5 @@ nbproject/
 
 application/controllers/cron/monitoring_status.json
 docs
+
+theme
