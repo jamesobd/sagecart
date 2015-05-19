@@ -1,0 +1,24 @@
+<!--Price Section-->
+<section class="filter-section">
+    <h3>Filter by price</h3>
+    <form method="get" name="price-filters">
+        <span class="clear" id="clearPrice" >Clear price</span>
+        <div class="price-btns">
+            <button class="btn btn-black btn-sm" value="below $50">below $50</button><br/>
+            <button class="btn btn-black btn-sm disabled" value="$50-$100">from $50 to $100</button><br/>
+            <button class="btn btn-black btn-sm" value="$100-$300">from $100 to $300</button><br/>
+            <button class="btn btn-black btn-sm" value="$300-$1000">from $300 to $1000</button>
+        </div>
+        <div class="price-slider">
+            <div id="price-range"></div>
+            <div class="values group">
+                <!--data-min-val represent minimal price and data-max-val maximum price respectively in pricing slider range; value="" - default values-->
+                <input class="form-control" name="minPrice" id="minPrice" type="text" data-min-val="0" value="10">
+                <span class="labels">$ - </span>
+                <input class="form-control" name="maxPrice" id="maxPrice" type="text" data-max-val="2500" value="500">
+                <span class="labels">$</span>
+            </div>
+            <input class="btn btn-primary btn-sm" type="submit" value="Filter">
+        </div>
+    </form>
+</section>

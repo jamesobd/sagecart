@@ -65,6 +65,18 @@ App.Collections.Products = Backbone.Collection.extend({
     },
 
     /**
+     * Returns all products based of GET param filters
+     */
+    getByURL: function() {
+        var minPrice = $.getParam('minPrice') ? Number($.getParam('minPrice')) : 0;
+        var maxPrice = $.getParam('maxPrice') ? Number($.getParam('maxPrice')) : Number.MAX_VALUE;
+
+        return this.filter(function (product) {
+            return minPrice <= product.get('standardunitprice') && product.get('standardunitprice') <= maxPrice;
+        });
+    },
+
+    /**
      * Search for products whose properties have str in it (space delimited)
      */
     search: function (str, offset, limit) {

@@ -12,7 +12,8 @@ App.Views['gallery-grid-list'] = Backbone.View.extend({
     template: App.Templates['lists/gallery-grid-list'],
 
     render: function () {
-        this.$el.html(this.template({products: this.products.toJSON(), categories: this.categories.toJSON()}));
+        // TODO: Remove the slices once we are using categories
+        this.$el.html(this.template({products: this.products.toJSON().slice(-10), categories: this.categories.toJSON().slice(-10)}));
         this.enableScripts();
         return this;
     },

@@ -451,7 +451,7 @@
 <script src="/js/custom/jquery.uri.js"></script>
 <script src="/js/scripts.js"></script>
 
-<!--Templates-->
+<!--Handlebars templates-->
 <script src="/js/custom/templates.js"></script>
 
 <!-- Models -->
@@ -471,6 +471,7 @@
 <script src="/js/views/lists/gallery-grid-list.js"></script>
 <script src="/js/views/items/product-grid-item.js"></script>
 <script src="/js/views/pagination-view.js"></script>
+<script src="/js/views/price-filter-view.js"></script>
 
 <!-- Routes -->
 <script src="/js/routes/main-route.js"></script>
