@@ -4,7 +4,7 @@
         <div class="price-label old-price">${{numberToFixed suggestedretailprice 2}}</div>
     {{/if}}
     <a href="/img/products/{{encodeURIComponent itemcode}}" style="display: flex; align-items: center">
-        <img src="//placehold.it/356x390" {{#if imagefile}}data-src="/img/products/{{imagefile}}"{{/if}}
+        <img src="/img/products/{{imagefile}}"
              alt="{{extendeddescriptiontext}}"
              style="height: auto;"/>
         <span class="tile-overlay"></span>

@@ -11,13 +11,7 @@ App.Views['product-grid-item'] = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template(this.model.toJSON()));
-        console.log(this.$('a').width());
-        this.$('img').one('load', this.resizeImage).one('error', this.useDefaultImage).each(function (i, e) {
-            $el = $(e);
-            if ($el.data('src')) {
-                $el.attr('src', $el.data('src'));
-            }
-        });
+        this.$('img').one('load', this.resizeAnchor).one('error', this.useDefaultImage);
         return this;
     },
 
@@ -30,7 +24,7 @@ App.Views['product-grid-item'] = Backbone.View.extend({
         $(e.currentTarget).attr('src', '//placehold.it/356x390');
     },
 
-    resizeImage: function (e) {
+    resizeAnchor: function (e) {
         $(e.currentTarget).parent().height($(e.currentTarget).parent().width() * 390 / 356);
     }
 });
