@@ -39,15 +39,11 @@ templates['items/product-grid-item'] = template({"1":function(depth0,helpers,par
     + this.escapeExpression((helpers.numberToFixed || (depth0 && depth0.numberToFixed) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.suggestedretailprice : depth0),2,{"name":"numberToFixed","hash":{},"data":data}))
     + "</div>\r\n";
 },"3":function(depth0,helpers,partials,data) {
-    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+    var helper;
 
-  return "            <img src=\""
-    + alias3(((helper = (helper = helpers.itemimage || (depth0 != null ? depth0.itemimage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemimage","hash":{},"data":data}) : helper)))
-    + "\" alt=\""
-    + alias3(((helper = (helper = helpers.itemcodeshortdesc || (depth0 != null ? depth0.itemcodeshortdesc : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcodeshortdesc","hash":{},"data":data}) : helper)))
-    + "\"/>\r\n";
-},"5":function(depth0,helpers,partials,data) {
-    return "            <img src=\"//placehold.it/356x390\" alt=\"No image available\"/>\r\n";
+  return "data-src=\"/img/products/"
+    + this.escapeExpression(((helper = (helper = helpers.imagefile || (depth0 != null ? depth0.imagefile : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"imagefile","hash":{},"data":data}) : helper)))
+    + "\"";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
 
@@ -55,11 +51,13 @@ templates['items/product-grid-item'] = template({"1":function(depth0,helpers,par
     + alias2((helpers.numberToFixed || (depth0 && depth0.numberToFixed) || alias1).call(depth0,(depth0 != null ? depth0.standardunitprice : depth0),2,{"name":"numberToFixed","hash":{},"data":data}))
     + "</div>\r\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.suggestedretailprice : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    <a href=\"/products/"
+    + "    <a href=\"/img/products/"
     + alias2((helpers.encodeURIComponent || (depth0 && depth0.encodeURIComponent) || alias1).call(depth0,(depth0 != null ? depth0.itemcode : depth0),{"name":"encodeURIComponent","hash":{},"data":data}))
-    + "\">\r\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.itemimage : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")
-    + "        <span class=\"tile-overlay\"></span>\r\n    </a>\r\n\r\n    <div class=\"footer\">\r\n        <a href=\"#\">"
+    + "\" style=\"display: flex; align-items: center\">\r\n        <img src=\"//placehold.it/356x390\" "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.imagefile : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\r\n             alt=\""
+    + alias2(((helper = (helper = helpers.extendeddescriptiontext || (depth0 != null ? depth0.extendeddescriptiontext : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"extendeddescriptiontext","hash":{},"data":data}) : helper)))
+    + "\"\r\n             style=\"height: auto;\"/>\r\n        <span class=\"tile-overlay\"></span>\r\n    </a>\r\n\r\n    <div class=\"footer\">\r\n        <a href=\"#\">"
     + alias2(((helper = (helper = helpers.itemcode || (depth0 != null ? depth0.itemcode : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"itemcode","hash":{},"data":data}) : helper)))
     + "</a>\r\n        <button class=\"btn btn-primary\" data-addtocart=\""
     + alias2(((helper = (helper = helpers.itemcode || (depth0 != null ? depth0.itemcode : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"itemcode","hash":{},"data":data}) : helper)))

@@ -446,6 +446,7 @@
 
 <!--Custom theme scripts-->
 <script src="/js/custom/handlebars.helpers.js"></script>
+<script src="/js/custom/lodash.pagination.js"></script>
 <script src="/js/custom/jquery.serializeObject.js"></script>
 <script src="/js/custom/jquery.postJSON.js"></script>
 <script src="/js/custom/jquery.uri.js"></script>

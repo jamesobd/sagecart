@@ -60,7 +60,7 @@ App.Collections.Products = Backbone.Collection.extend({
      */
     getByCategory: function (category, offset, limit) {
         return _.paginate(this.filter(function (product) {
-            return _.isEmpty(category) || product.get('Categories').indexOf(category) > -1;
+            return _.isEmpty(category) || product.get('categories').indexOf(category) > -1;
         }), offset, limit);
     },
 
