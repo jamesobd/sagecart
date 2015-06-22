@@ -75,7 +75,7 @@ class Users extends CI_Controller {
         }
 
         // Find the contact with the username/password combo
-        $response = $this->users_model->getByEmailAndPassword($this->input->post('username'), $this->input->post('password'));
+        $response = $this->users_model->getByUsernameAndPassword($this->input->post('username'), $this->input->post('password'));
 
         // If there was an error
         if (isset($response->status) && $response->status == 'error') {
@@ -115,16 +115,22 @@ class Users extends CI_Controller {
         // Update the contact info in the database
         $this->users_model->update($contact['username'], $contact);
 
-        // Sync products and categories
+        // Sync products
         // TODO: Limit the number of times we do a sync.  Maybe once per day or have this be an asynchronous call
         $this->load->model('products_model');
         $response = $this->products_model->sync($contact);
         if ($response->status != 'success') {
-            $this->response->send(array('status' => 'error', 'message' => 'Could not sync products with SAGE'), 400);
+            $this->response->send(array('status' => 'error', 'message' => 'Unable to sync products with SAGE'), 400);
         }
-        // TODO: Sync categories too
 
-        $this->response->send($contact, 200);
+        // Sync categories
+        $this->load->model('categories_model');
+        $response = $this->categories_model->sync($contact);
+        if ($response->status != 'success') {
+            $this->response->send(array('status' => 'error', 'message' => 'Unable to sync categories with SAGE'), 400);
+        }
+
+        $this->response->send($contact);
     }
 
 
@@ -133,6 +139,7 @@ class Users extends CI_Controller {
      */
     public function logout() {
         $this->session->sess_destroy();
+        $this->response->send();
     }
 
 

@@ -54,8 +54,8 @@ App.Collections.Products = Backbone.Collection.extend({
      * Get all products that belong to a given category
      *
      * @param category
-     * @param offset
-     * @param limit
+     * @param [offset] Number
+     * @param [limit] Number
      * @returns {Array.<T>|*}
      */
     getByCategory: function (category, offset, limit) {

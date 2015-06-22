@@ -16,6 +16,7 @@
  * @property Categories_Model $categories_model
  * @property Contacts_Model $contacts_model
  * @property Users_Model $users_model
+ * @property Carts_Model $carts_model
  *
  *
 }

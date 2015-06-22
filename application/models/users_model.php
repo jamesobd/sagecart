@@ -9,7 +9,6 @@ class Users_Model extends CI_Model {
         parent::__construct();
 
         $this->load->library(array('request'));
-        // connect to the database
         $this->collection = (new MongoClient($this->config->item('mongo_uri')))->sagecart->users;
     }
 
@@ -19,34 +18,6 @@ class Users_Model extends CI_Model {
     | Contacts CRUD methods
     |--------------------------------------------------------------------------
     */
-
-    /**
-     * Create contacts
-     *
-     * @param Object $data
-     * @return mixed
-     */
-    public function create(Object $data) {
-    }
-
-    /**
-     * Get all contactss
-     *
-     * @param array $where - optional where clauses for doing filtering
-     * @return mixed
-     */
-    public function getAll($where = array()) {
-    }
-
-    /**
-     * Get contacts
-     *
-     * @param string $users_id
-     * @return mixed
-     */
-    public function get($users_id) {
-
-    }
 
     /**
      * Update contacts
@@ -59,14 +30,6 @@ class Users_Model extends CI_Model {
         $this->collection->update(array("username" => $users_id), array('$set' => $data), array('upsert' => true));
     }
 
-    /**
-     * Delete contacts
-     *
-     * @param int $users_id
-     * @return bool
-     */
-    public function delete($users_id) {
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -77,17 +40,16 @@ class Users_Model extends CI_Model {
     /**
      * Get a contact by email and password
      *
-     * @param $email
+     * @param $username
      * @param $password
      * @return mixed
      */
-    public function getByEmailAndPassword($email, $password) {
+    public function getByUsernameAndPassword($username, $password) {
         $body = array(
-            'user' => $email,
+            'user' => $username,
             'password' => $password,
         );
         $url = $this->config->item('sage_api_url') . 'users?method=login';
-
         $response = $this->request->post($url, $body);
 
         // If there was a CURL error

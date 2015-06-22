@@ -468,9 +468,12 @@
 <script src="/js/views/layouts/main-layout.js"></script>
 <script src="/js/views/pages/auto-route-page.js"></script>
 <script src="/js/views/pages/product-page.js"></script>
-<script src="/js/views/lists/product-grid-list.js"></script>
 <script src="/js/views/lists/gallery-grid-list.js"></script>
+<script src="/js/views/lists/product-grid-list.js"></script>
+<script src="/js/views/lists/product-picks-list.js"></script>
+<script src="/js/views/lists/browse-categories-list.js"></script>
 <script src="/js/views/items/product-grid-item.js"></script>
+<script src="/js/views/items/category-grid-item.js"></script>
 <script src="/js/views/pagination-view.js"></script>
 <script src="/js/views/price-filter-view.js"></script>
 

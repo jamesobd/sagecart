@@ -10,8 +10,7 @@ App.Routes.MainRoute = Backbone.Router.extend({
         // Initialize collections/models
         this.user = new App.Models.User();
         this.products = new App.Collections.Products([], {user: this.user});
-        // TODO: Re-enable this
-        //this.categories = new App.Collections.Categories([], {user: this.user});
+        this.categories = new App.Collections.Categories([], {user: this.user});
 
 
         // Initialize views (widgets)
@@ -42,7 +41,7 @@ App.Routes.MainRoute = Backbone.Router.extend({
      */
     autoRoutePage: function (page) {
         if (this.user.XHR.state() == 'resolved') {
-            $.when(this.products.XHR).always(function () {
+            $.when(this.products.XHR, this.categories.XHR).always(function () {
                 this.layout.switchPage(new App.Views.AutoRoutePage({page: page ? page : 'home-slideshow'}).render());
             }.bind(this));
         } else if (this.user.XHR.state() == 'rejected') {
@@ -57,7 +56,7 @@ App.Routes.MainRoute = Backbone.Router.extend({
      */
     productPage: function (itemCode) {
         if (this.user.XHR.state() == 'resolved') {
-            $.when(this.products.XHR).always(function () {
+            $.when(this.products.XHR, this.categories.XHR).always(function () {
                 this.layout.switchPage(new App.Views.ProductPage({model: this.products.get(itemCode)}).render($.getParam('ver')));
             }.bind(this));
         } else if (this.user.XHR.state() == 'rejected') {
@@ -72,7 +71,7 @@ App.Routes.MainRoute = Backbone.Router.extend({
      */
     categoryPage: function (categoryCode) {
         console.log('navigated to category page');
-        $.when(this.XHR.products).always(function () {
+        $.when(this.XHR.products, this.categories.XHR).always(function () {
             var view = new App.Views.ProductListPage({
                 collection: this.products,
                 categories: this.categories
@@ -85,7 +84,7 @@ App.Routes.MainRoute = Backbone.Router.extend({
      * Display the shopping cart
      */
     cartPage: function () {
-        $.when(this.XHR.products).always(function () {
+        $.when(this.XHR.products, this.categories.XHR).always(function () {
             var view = new App.Views.CartPage({collection: this.products, model: this.user}).render();
             this.content.switchPage(view);
         }.bind(this));
@@ -95,7 +94,7 @@ App.Routes.MainRoute = Backbone.Router.extend({
      * Display the products based on the "q" GET param.
      */
     searchPage: function () {
-        $.when(this.XHR.products).always(function () {
+        $.when(this.XHR.products, this.categories.XHR).always(function () {
             if (_.isEmpty($.getParam('q'))) {
                 var view = new App.Views.ProductListPage({
                     collection: this.products,
