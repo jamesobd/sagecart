@@ -70,9 +70,12 @@ App.Collections.Products = Backbone.Collection.extend({
     getByURL: function() {
         var minPrice = $.getParam('minPrice') ? Number($.getParam('minPrice')) : 0;
         var maxPrice = $.getParam('maxPrice') ? Number($.getParam('maxPrice')) : Number.MAX_VALUE;
+        var category = $.getSegment(1) == 'categories' ? $.getSegment(2) : '';
 
         return this.filter(function (product) {
-            return minPrice <= product.get('standardunitprice') && product.get('standardunitprice') <= maxPrice;
+            var isWithinPriceRange = minPrice <= product.get('standardunitprice') && product.get('standardunitprice') <= maxPrice;
+            var isCorrectCategory = category ? product.get('categories').indexOf(category) > -1 : true;
+            return isWithinPriceRange && isCorrectCategory;
         });
     },
 

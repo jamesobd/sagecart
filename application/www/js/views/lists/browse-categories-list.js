@@ -8,7 +8,7 @@ App.Views['browse-categories-list'] = Backbone.View.extend({
     },
 
     render: function () {
-        this.categories.getWebEnabled().forEach(function (category, i) {
+        this.categories.getMainNavigation().forEach(function (category, i) {
             // Add the Bootstrap Responsive column resets (Bootstrap Responsive utilities)
             if (i % 6 == 0 && i > 0) this.$el.append('<div class="clearfix visible-lg-block visible-md-block"></div>');
             if (i % 3 == 0 && i > 0) this.$el.append('<div class="clearfix visible-sm-block"></div>');

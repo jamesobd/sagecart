@@ -1,0 +1,35 @@
+{{#each children}}
+    {{#if children}}
+        <li class="has-submenu"><a href="/categories/{{category}}">{{categorydescription}}<i
+                class="fa fa-chevron-down"></i></a>
+            <!-- REPEATED -->
+            <ul class="submenu">
+                {{#each children}}
+                    {{#if children}}
+                        <li class="has-submenu"><a href="/categories/{{category}}">{{categorydescription}}</a>
+                            <ul class="sub-submenu">
+                                {{#each children}}
+                                    <li><a href="/categories/{{category}}">{{categorydescription}}</a></li>
+                                {{/each}}
+                            </ul>
+                        </li>
+                    {{else}}
+                        <li><a href="/categories/{{category}}">{{categorydescription}}</a></li>
+                    {{/if}}
+                {{/each}}
+                <li class="offer">
+                    <div class="col-1">
+                        <p class="p-style2" style="display: block;">Use category images on the menu. It's easier to
+                            perceive visual content than a textual one. </p>
+                    </div>
+                    <div class="col-2">
+                        <img src="/img/products/{{../categoryimage}}" alt=""
+                             style="max-height:149px; max-width:245px; float:right">
+                    </div>
+                </li>
+            </ul>
+        </li>
+    {{else}}
+        <li><a href="/categories/{{category}}">{{categorydescription}}</a></li>
+    {{/if}}
+{{/each}}

@@ -140,7 +140,6 @@ $(function () {
         });
     }
 
-
     /*Mobile Navigation
      *******************************************/
     //Mobile menu toggle

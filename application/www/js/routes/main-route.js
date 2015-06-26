@@ -14,11 +14,7 @@ App.Routes.MainRoute = Backbone.Router.extend({
 
 
         // Initialize views (widgets)
-        //new App.Views.SearchBarView({collection: this.products});
-        //new App.Views.CartBarView({model: this.contact, collection: this.products});
-        //new App.Views.Nav({collection: this.categories});
-        //this.content = new App.Views.ContentView();
-        this.layout = new App.Views.MainLayout({model: this.user});
+        this.layout = new App.Views.MainLayout({model: this.user, categories: this.categories});
 
         // When the user signs in or out we redirect to the home page.
         this.listenTo(this.user, 'login logout', function () {
@@ -70,21 +66,20 @@ App.Routes.MainRoute = Backbone.Router.extend({
      * @param {String} categoryCode - The category to display
      */
     categoryPage: function (categoryCode) {
-        console.log('navigated to category page');
-        $.when(this.XHR.products, this.categories.XHR).always(function () {
-            var view = new App.Views.ProductListPage({
-                collection: this.products,
-                categories: this.categories
-            }).renderByCategory(categoryCode, $.getParam('offset'), $.getParam('limit'));
-            this.content.switchPage(view);
-        }.bind(this));
+        if (this.user.XHR.state() == 'resolved') {
+            $.when(this.products.XHR, this.categories.XHR).always(function () {
+                this.layout.switchPage(new App.Views.CategoryPage().render());
+            }.bind(this));
+        } else if (this.user.XHR.state() == 'rejected') {
+            this.layout.switchPage(new App.Views.AutoRoutePage({page: 'login'}).render());
+        }
     },
 
     /**
      * Display the shopping cart
      */
     cartPage: function () {
-        $.when(this.XHR.products, this.categories.XHR).always(function () {
+        $.when(this.products.XHR, this.categories.XHR).always(function () {
             var view = new App.Views.CartPage({collection: this.products, model: this.user}).render();
             this.content.switchPage(view);
         }.bind(this));
@@ -94,7 +89,7 @@ App.Routes.MainRoute = Backbone.Router.extend({
      * Display the products based on the "q" GET param.
      */
     searchPage: function () {
-        $.when(this.XHR.products, this.categories.XHR).always(function () {
+        $.when(this.products.XHR, this.categories.XHR).always(function () {
             if (_.isEmpty($.getParam('q'))) {
                 var view = new App.Views.ProductListPage({
                     collection: this.products,

@@ -1,8 +1,11 @@
 App.Views.MainLayout = Backbone.View.extend({
-    initialize: function (options) {
+    initialize: function (params) {
+        this.categories = params.categories;
+
         // When the user signs in or out we redirect to the home page.
         this.listenTo(this.model, 'login', this.renderLogin);
         this.listenTo(this.model, 'logout', this.renderLogout);
+        this.listenTo(this.categories, 'update sync', this.renderCategoriesNav);
     },
     el: 'body',
 
@@ -88,10 +91,17 @@ App.Views.MainLayout = Backbone.View.extend({
      * Render adjustments to this layout when the user logs-in
      */
     renderLogin: function () {
+        // Change header login link to logout link
         this.$('.logout-btn').show();
         this.$('.login-btn').hide();
+
+        // Hide the login modal if it's showing
         this.$('#loginModal').modal('hide');
+
+        // show the catalog
         this.$('.catalog-block .catalog').css('visibility', 'visible');
+
+
     },
 
     /**
@@ -101,5 +111,12 @@ App.Views.MainLayout = Backbone.View.extend({
         this.$('.logout-btn').hide();
         this.$('.login-btn').show();
         this.$('.catalog-block .catalog').css('visibility', 'hidden');
+    },
+
+    /**
+     * Render the categories navigation
+     */
+    renderCategoriesNav: function() {
+        this.nav = new App.Views['category-nav-view']({categories: this.categories}).render();
     }
 });

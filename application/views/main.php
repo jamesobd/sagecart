@@ -156,47 +156,7 @@
 
         <div class="catalog-block">
             <div class="container">
-                <ul class="catalog" style="visibility: hidden;">
-                    <li class="has-submenu"><a href="/shop-filters-left-3cols">Handbag<i
-                                class="fa fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="#">Wristlet</a></li>
-                            <li class="has-submenu"><a href="#">Backpack</a><!--Class "has-submenu" for adding carret and dropdown-->
-                                <ul class="sub-submenu">
-                                    <li><a href="#">KATA</a></li>
-                                    <li><a href="#">Think Tank</a></li>
-                                    <li><a href="#">Manfrotto</a></li>
-                                    <li><a href="#">Lowepro</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Hat box</a></li>
-                            <li class="has-submenu"><a href="#">Clutch</a>
-                                <ul class="sub-submenu">
-                                    <li><a href="#">Louis Vuitton</a></li>
-                                    <li><a href="#">Chanel</a></li>
-                                    <li><a href="#">Christian Dior</a></li>
-                                    <li><a href="#">Gucci</a></li>
-                                    <li><a href="#">Neri Karra</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Envelope</a></li>
-                            <li class="offer">
-                                <div class="col-1">
-                                    <p class="p-style2">Use product images on the menu. It's easier to percept a visual
-                                        content than a textual one. </p>
-                                </div>
-                                <div class="col-2">
-                                    <img src="/img/offers/menu-drodown-offer.jpg" alt="Special Offer"/>
-                                    <a class="btn btn-black" href="#"><span>$584</span>Special offer</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="/shop-filters-left-3cols">Wallet</a></li>
-                    <li><a href="/shop-filters-left-3cols">Satchel</a></li>
-                    <li><a href="/shop-filters-left-3cols">Clutch</a></li>
-                    <li><a href="/shop-filters-left-3cols">Hobo bags</a></li>
-                    <li><a href="/shop-filters-left-3cols">Shoulder Bag</a></li>
+                <ul id="category-nav" class="catalog" style="visibility: hidden;">
                 </ul>
             </div>
         </div>
@@ -467,6 +427,7 @@
 <!-- Views -->
 <script src="/js/views/layouts/main-layout.js"></script>
 <script src="/js/views/pages/auto-route-page.js"></script>
+<script src="/js/views/pages/category-page.js"></script>
 <script src="/js/views/pages/product-page.js"></script>
 <script src="/js/views/lists/gallery-grid-list.js"></script>
 <script src="/js/views/lists/product-grid-list.js"></script>
@@ -474,6 +435,8 @@
 <script src="/js/views/lists/browse-categories-list.js"></script>
 <script src="/js/views/items/product-grid-item.js"></script>
 <script src="/js/views/items/category-grid-item.js"></script>
+<script src="/js/views/category-nav-view.js"></script>
+<!--<script src="/js/views/category-subnav-view.js"></script>-->
 <script src="/js/views/pagination-view.js"></script>
 <script src="/js/views/price-filter-view.js"></script>
 

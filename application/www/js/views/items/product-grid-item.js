@@ -26,5 +26,6 @@ App.Views['product-grid-item'] = Backbone.View.extend({
 
     resizeAnchor: function (e) {
         $(e.currentTarget).parent().height($(e.currentTarget).parent().width() * 390 / 356);
+        $(e.currentTarget).css('max-height', '100%');
     }
 });

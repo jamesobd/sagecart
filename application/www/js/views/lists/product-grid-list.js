@@ -11,7 +11,7 @@ App.Views['product-grid-list'] = Backbone.View.extend({
         // Get the limit and offset
         var limit = $.getParam('limit') ? Number($.getParam('limit')) : app.defaults.limit;
         var offset = $.getParam('offset') ? Number($.getParam('offset')) : app.defaults.offset;
-        var products = this.products.getByURL()
+        var products = this.products.getByURL();
 
         for (var i = offset; i < products.length && i < offset + limit; i++) {
             this.$el.append(new App.Views['product-grid-item']({
