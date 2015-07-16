@@ -10,9 +10,11 @@ App.Views['price-filter-view'] = Backbone.View.extend({
     template: App.Templates['price-filter'],
 
     render: function () {
+        var category = $.getSegment(1) == 'categories' ? $.getSegment(2) : '';
+        var products = this.products.getByCategory(category);
+
         // Render the template
         this.$el.html(this.template());
-
 
         // Initialize javascript
 
@@ -20,11 +22,12 @@ App.Views['price-filter-view'] = Backbone.View.extend({
         if (this.$('#price-range').length > 0) {
             var startMin = $.getParam('minPrice') ? Number($.getParam('minPrice')) : Number(this.$('#minPrice').val());
             var startMax = $.getParam('maxPrice') ? Number($.getParam('maxPrice')) : Number(this.$('#maxPrice').val());
+            var rangeMax = products ? _.max(products, function(item){return item.get('standardunitprice')}).get('standardunitprice') : this.products.max(function(item){return item.get('standardunitprice')}).get('standardunitprice');
 
             this.$('#price-range').noUiSlider({
                 range: {
                     'min': Number(this.$('#minPrice').attr('data-min-val')),
-                    'max': Number(this.$('#maxPrice').attr('data-max-val'))
+                    'max': rangeMax
                 },
                 start: [startMin, startMax],
                 connect: true,
@@ -49,7 +52,7 @@ App.Views['price-filter-view'] = Backbone.View.extend({
             });
 
             this.$('#price-range').on('set', function () {
-                // Update the ULR
+                // Update the URL
                 $.setParam('minPrice', this.$('#minPrice').val());
                 $.setParam('maxPrice', this.$('#maxPrice').val());
             }.bind(this));
