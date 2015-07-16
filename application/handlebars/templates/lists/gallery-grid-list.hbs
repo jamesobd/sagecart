@@ -12,10 +12,10 @@
             <!--Item-->
             <!--TODO: have the itemcode handle numbers vs strings-->
             <li class="gallery-item" data-groups='["{{this.itemcode}}"]'
-                 data-src="{{#if itemimage}}{{itemimage}}{{else}}//placehold.it/732x566{{/if}}">
-                <a href="{{#if itemimage}}{{itemimage}}{{else}}//placehold.it/732x566{{/if}}">
+                 data-src="{{#if imagefile}}/img/products/{{imagefile}}{{else}}//placehold.it/732x566{{/if}}">
+                <a href="{{#if imagefile}}/img/products/{{imagefile}}{{else}}//placehold.it/732x566{{/if}}">
                     <div class="overlay"><span><i class="icon-expand"></i></span></div>
-                    <img src="{{#if itemimage}}{{itemimage}}{{else}}//placehold.it/732x566{{/if}}" alt="1"/>
+                    <img src="{{#if imagefile}}/img/products/{{imagefile}}{{else}}//placehold.it/732x566{{/if}}" alt="1"/>
                 </a>
             </li>
         {{/each}}

@@ -6,11 +6,11 @@ Handlebars.partials['product-gallery'] = template({"compiler":[6,">= 2.0.0-beta.
   return "<div class=\"gallery-item\" data-groups=\""
     + alias3(((helper = (helper = helpers.itemcategories || (depth0 != null ? depth0.itemcategories : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcategories","hash":{},"data":data}) : helper)))
     + "\" data-src=\""
-    + alias3(((helper = (helper = helpers.itemimage || (depth0 != null ? depth0.itemimage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemimage","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.itemimage || (depth0 != null ? depth0.itemimage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"imagefile","hash":{},"data":data}) : helper)))
     + "\">\r\n    <a href=\""
-    + alias3(((helper = (helper = helpers.itemimage || (depth0 != null ? depth0.itemimage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemimage","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.imagefile || (depth0 != null ? depth0.imagefile : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"imagefile","hash":{},"data":data}) : helper)))
     + "\">\r\n        <div class=\"overlay\"><span><i class=\"icon-expand\"></i></span></div>\r\n        <img src=\""
-    + alias3(((helper = (helper = helpers.itemimage || (depth0 != null ? depth0.itemimage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemimage","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.imagefile || (depth0 != null ? depth0.imagefile : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"imagefile","hash":{},"data":data}) : helper)))
     + "\" alt=\""
     + alias3(((helper = (helper = helpers.itemcodedesc || (depth0 != null ? depth0.itemcodedesc : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcodedesc","hash":{},"data":data}) : helper)))
     + "\"/>\r\n    </a>\r\n</div>\r\n";
@@ -31,7 +31,7 @@ Handlebars.partials['product'] = template({"1":function(depth0,helpers,partials,
     + "    <a href=\"/item/"
     + alias3(((helper = (helper = helpers.itemcode || (depth0 != null ? depth0.itemcode : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcode","hash":{},"data":data}) : helper)))
     + "\">\r\n        <img src=\""
-    + alias3(((helper = (helper = helpers.itemimage || (depth0 != null ? depth0.itemimage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemimage","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.imagefile || (depth0 != null ? depth0.imagefile : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"imagefile","hash":{},"data":data}) : helper)))
     + "\" alt=\""
     + alias3(((helper = (helper = helpers.itemcodedesc || (depth0 != null ? depth0.itemcodedesc : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"itemcodedesc","hash":{},"data":data}) : helper)))
     + "\"/>\r\n        <span class=\"tile-overlay\"></span>\r\n    </a>\r\n\r\n    <div class=\"footer\">\r\n        <a href=\"#\">"
